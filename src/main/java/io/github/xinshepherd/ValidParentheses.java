@@ -1,0 +1,45 @@
+package io.github.xinshepherd;
+
+import netscape.security.UserTarget;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
+public class ValidParentheses {
+
+    private final Map<Character, Character> mapping = new HashMap<>();
+
+    {
+        mapping.put('(', ')');
+        mapping.put('{', '}');
+        mapping.put('[', ']');
+    }
+
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            Character c = s.charAt(i);
+            if (mapping.containsKey(c)) {
+                stack.push(c);
+            } else {
+                Character pop = stack.isEmpty() ? '#' : stack.pop();
+                if (!c.equals(mapping.get(pop))) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        ValidParentheses validParentheses = new ValidParentheses();
+        System.out.println(validParentheses.isValid("("));
+        System.out.println(validParentheses.isValid("}"));
+        System.out.println(validParentheses.isValid("()[]{}"));
+        System.out.println(validParentheses.isValid("(]"));
+        System.out.println(validParentheses.isValid("([)]"));
+        System.out.println(validParentheses.isValid("{[]}"));
+    }
+
+}
