@@ -8,6 +8,7 @@ package io.github.xinshepherd;
  */
 public class MergeKLists {
 
+    // 方法 2：逐一比较 时间复杂度 O(kN)  空间复杂度 O(n)
     public ListNode mergeKLists(ListNode[] lists) {
         int length = lists.length;
         if (length == 0) return null;
@@ -46,6 +47,41 @@ public class MergeKLists {
         return head;
     }
 
+    // 分治 两两合并 O(Nlogk)  空间复杂度  O(1)
+    public ListNode mergeKLists2(ListNode[] lists) {
+        int length = lists.length;
+        if (length == 0) return null;
+        int interval = 1;
+        while (interval < length) {
+            for (int i = 0; i < length - interval; i += interval * 2) {
+                lists[i] = mergeTowListNode(lists[i], lists[i + interval]);
+            }
+            interval *= 2;
+        }
+        return lists[0];
+    }
+
+    private ListNode mergeTowListNode(ListNode node1, ListNode node2) {
+        ListNode head = new ListNode(0);
+        ListNode current = head;
+        while (node1 != null && node2 != null) {
+            if (node1.val <= node2.val) {
+                current.next = node1;
+                node1 = node1.next;
+            } else {
+                current.next = node2;
+                node2 = node2.next;
+            }
+            current = current.next;
+        }
+        if (node1 != null) {
+            current.next = node1;
+        } else {
+            current.next = node2;
+        }
+        return head.next;
+    }
+
     public static class ListNode {
         int val;
         ListNode next;
@@ -62,9 +98,9 @@ public class MergeKLists {
                 list2(),
                 list3()
         };
-        print(mergeKLists.mergeKLists(listNodes));
-        print(mergeKLists.mergeKLists(new ListNode[0]));
-        print(mergeKLists.mergeKLists(new ListNode[]{
+        print(mergeKLists.mergeKLists2(listNodes));
+        print(mergeKLists.mergeKLists2(new ListNode[0]));
+        print(mergeKLists.mergeKLists2(new ListNode[]{
                 null
         }));
     }
