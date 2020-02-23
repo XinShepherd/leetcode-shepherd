@@ -3,6 +3,7 @@ package io.github.xinshepherd;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+// 146. LRU缓存机制
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {
 
     private int capacity;
