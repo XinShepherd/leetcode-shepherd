@@ -54,6 +54,7 @@ public class SolveNQueens {
             used[i] = true;
             checkerboard[index][i] = 1;
             solve(index + 1, used, checkerboard, results);
+            // 回溯
             checkerboard[index][i] = 0;
             used[i] = false;
         }
