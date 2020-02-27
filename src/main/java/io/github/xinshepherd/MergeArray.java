@@ -40,6 +40,8 @@ public class MergeArray {
         }
     }
 
+    //TODO 双指针从后往前比较
+
     public static void main(String[] args) {
         MergeArray mergeArray = new MergeArray();
         int[] num1 = {1, 2, 7, 0, 0, 0};
