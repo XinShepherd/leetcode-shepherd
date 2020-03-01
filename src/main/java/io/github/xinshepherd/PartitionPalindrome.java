@@ -26,7 +26,7 @@ public class PartitionPalindrome {
             String sub = s.substring(0, i + 1);
             if (!isPalindrome(sub))
                 continue;
-            result.add(sub);
+            result.addLast(sub);
             partition(s.substring(i + 1), result, results);
             result.removeLast();
         }
