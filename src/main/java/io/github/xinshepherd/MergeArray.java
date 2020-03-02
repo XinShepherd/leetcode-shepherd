@@ -40,7 +40,21 @@ public class MergeArray {
         }
     }
 
-    //TODO 双指针从后往前比较
+    // 双指针从后往前比较
+    public void mergeBack(int[] A, int m, int[] B, int n) {
+        int i = n - 1, j = m - 1;
+        int last = n + m - 1;
+        while(i >= 0 && j >= 0){
+            if(B[i] >= A[j]){
+                A[last--] = B[i--];
+            } else {
+                A[last--] = A[j--];
+            }
+        }
+        while(i >= 0){
+            A[last--] = B[i--];
+        }
+    }
 
     public static void main(String[] args) {
         MergeArray mergeArray = new MergeArray();
