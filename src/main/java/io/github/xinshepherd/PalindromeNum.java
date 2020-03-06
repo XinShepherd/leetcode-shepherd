@@ -1,0 +1,29 @@
+package io.github.xinshepherd;
+
+/**
+ * 9. 回文数
+ *
+ * @author Fuxin
+ * @since 2020/3/6 8:36
+ */
+public class PalindromeNum {
+
+    public boolean isPalindrome(int x) {
+        if (x < 0)
+            return false;
+        int sum = 0, temp = x;
+        while (temp > 0) {
+            sum = sum * 10 + temp % 10;
+            temp = temp / 10;
+        }
+        return x == sum;
+    }
+
+    public static void main(String[] args) {
+        PalindromeNum palindromeNum = new PalindromeNum();
+        System.out.println(palindromeNum.isPalindrome(121));
+        System.out.println(palindromeNum.isPalindrome(-121));
+        System.out.println(palindromeNum.isPalindrome(0));
+        System.out.println(palindromeNum.isPalindrome(10));
+    }
+}
