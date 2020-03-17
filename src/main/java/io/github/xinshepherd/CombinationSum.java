@@ -29,9 +29,13 @@ public class CombinationSum {
             return;
         }
         for (int i = index; i < candidates.length; i++) {
+            int sum = current + candidates[i];
+            if (sum > target) { // 剪枝
+                continue;
+            }
             stack.addLast(candidates[i]);
             // 再通过 i 剪枝
-            solution1(candidates, target, current + candidates[i], i, stack, results);
+            solution1(candidates, target, sum, i, stack, results);
             // 回溯
             stack.removeLast();
         }
