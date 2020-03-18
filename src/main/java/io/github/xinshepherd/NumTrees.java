@@ -1,51 +1,27 @@
 package io.github.xinshepherd;
 
 /**
+ * 96. 不同的二叉搜索树
+ *
  * @author Fuxin
  * @since 2020/3/2 8:35
  */
 public class NumTrees {
 
-    int num = 0;
-
     public int numTrees(int n) {
-        if (n == 0)
-            return 0;
-        boolean[] flags = new boolean[n];
-        num = 0;
-        // root
-        for (int i = 0; i < n; i++) {
-            flags[i] = true;
-            TreeNode root = new TreeNode(i);
-            backtrack(n, 1, root, flags);
-            flags[i] = false;
-        }
-        return num;
-    }
 
-    void backtrack(int n, int count, TreeNode node, boolean[] flags) {
-        if (count == n) {
-            num++;
-            return;
-        }
-        for (int i = 0; i < node.val; i++) {
-            if (flags[i]) {
-                continue;
+        // 动态规划
+        // 选取一个根节点，然后根节点左边是左子树，根节点右边是右子树，左右子树的个数相乘就是结果（一个递归的过程）
+        int[] G = new int[n + 1];
+        G[0] = 1;
+        G[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                G[i] += G[j - 1] * G[i - j];
             }
-            node.left = new TreeNode(i);
-            flags[i] = true;
-            backtrack(n, count + 1, node.left, flags);
-            flags[i] = false;
         }
-        for (int i = node.val; i < n; i++) {
-            if (flags[i]) {
-                continue;
-            }
-            node.right = new TreeNode(i);
-            flags[i] = true;
-            backtrack(n, count + 1, node.right, flags);
-            flags[i] = false;
-        }
+        return G[n];
     }
 
     public static void main(String[] args) {

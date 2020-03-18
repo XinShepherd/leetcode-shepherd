@@ -12,8 +12,12 @@ public class RotatePhoto {
 
     public void rotate(int[][] matrix) {
         int start = 0, end = matrix.length - 1;
+        // 解题思路：
+        // 从最外圈逐渐向内旋转
         for (; start < end; start++, end--) {
             int len = end - start;
+            // 一圈内，从横线的第一个点开始旋转
+            // 直至到达一条线上的最后一个点（不包括最后一个点，因为最后一个点也是另外一条线上的第一个点）
             for (int i = 0; i < len; i++) {
                 int temp = matrix[start][start + i];
                 matrix[start][start + i] = matrix[end - i][start];
