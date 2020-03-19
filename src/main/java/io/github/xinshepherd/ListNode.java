@@ -41,4 +41,16 @@ public class ListNode {
         }
         System.out.println(sb.toString());
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        ListNode listNode = this;
+        while (listNode != null) {
+            sb.append(listNode.val);
+            sb.append(",");
+            listNode = listNode.next;
+        }
+        return sb.toString();
+    }
 }
