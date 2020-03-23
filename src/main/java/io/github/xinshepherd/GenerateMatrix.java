@@ -18,19 +18,16 @@ public class GenerateMatrix {
             }
             int len = end - start;
 
-            for (int i = 0; i <= len; i++) {
+            for (int i = 0; i < len; i++) {
                 matrix[start][start + i] = counter++;
             }
-
-            for (int i = 1; i <= len; i++) {
+            for (int i = 0; i < len; i++) {
                 matrix[start + i][end] = counter++;
             }
-
-            for (int i = 1; i <= len; i++) {
+            for (int i = 0; i < len; i++) {
                 matrix[end][end - i] = counter++;
             }
-
-            for (int i = 1; i < len; i++) {
+            for (int i = 0; i < len; i++) {
                 matrix[end - i][start] = counter++;
             }
         }
