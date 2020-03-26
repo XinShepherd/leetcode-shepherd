@@ -35,9 +35,9 @@ public class MyPow {
 
     public static void main(String[] args) {
         MyPow myPow = new MyPow();
-//        System.out.println(myPow.myPow(0, 0));
+        System.out.println(myPow.myPow(0, 0));
         System.out.println(myPow.myPow(1, 0));
-//        System.out.println(myPow.myPow(-1, 0));
+        System.out.println(myPow.myPow(-1, 0));
         System.out.println(myPow.myPow(2, 2));
         System.out.println(myPow.myPow(2, 10));
         System.out.println(myPow.myPow(-2, 10));
