@@ -13,6 +13,13 @@ public abstract class Util {
         System.out.println();
     }
 
+    public static void printArray(Object[] array) {
+        for (Object i : array) {
+            System.out.print(i + ",");
+        }
+        System.out.println();
+    }
+
     public static void printTwoDimensionalArray(int[][] results) {
         System.out.println("[");
         for (int[] result : results) {
