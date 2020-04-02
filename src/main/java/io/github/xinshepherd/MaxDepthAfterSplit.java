@@ -2,7 +2,7 @@ package io.github.xinshepherd;
 
 /**
  * 1111. 有效括号的嵌套深度
- *
+ * <p>
  * 需要细品
  *
  * @author Fuxin
@@ -11,7 +11,7 @@ package io.github.xinshepherd;
 public class MaxDepthAfterSplit {
 
     public int[] maxDepthAfterSplit(String seq) {
-        if(seq.length() == 0)
+        if (seq.length() == 0)
             return new int[0];
         int[] ans = new int[seq.length()];
         int depth = 0;
