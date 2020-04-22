@@ -39,4 +39,22 @@ public class TreeNode {
         root.right.right = new TreeNode(6);
         return root;
     }
+
+    public static TreeNode demo5() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(5);
+        root.right.right = new TreeNode(4);
+        return root;
+    }
+
+    // 左子树深度大于右子树
+    public static TreeNode demo6() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(4);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(5);
+        return root;
+    }
 }
