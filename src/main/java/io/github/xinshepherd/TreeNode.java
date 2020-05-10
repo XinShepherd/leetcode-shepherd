@@ -7,6 +7,20 @@ public class TreeNode {
     TreeNode right;
     TreeNode(int x) { val = x; }
 
+    public TreeNode addLeftAndRight(int left, int right) {
+        this.left = new TreeNode(left);
+        this.right = new TreeNode(right);
+        return this;
+    }
+    public TreeNode addLeft(int left) {
+        this.left = new TreeNode(left);
+        return this;
+    }
+    public TreeNode addRight(int right) {
+        this.right = new TreeNode(right);
+        return this;
+    }
+
     public static TreeNode demo() {
         TreeNode root = new TreeNode(1);
         root.right = new TreeNode(2);
@@ -56,5 +70,12 @@ public class TreeNode {
         root.right = new TreeNode(3);
         root.left.right = new TreeNode(5);
         return root;
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                '}';
     }
 }
