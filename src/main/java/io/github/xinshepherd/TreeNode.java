@@ -5,17 +5,31 @@ public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
-    TreeNode(int x) { val = x; }
+
+    TreeNode(int x) {
+        val = x;
+    }
+
+    TreeNode() {
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
 
     public TreeNode addLeftAndRight(int left, int right) {
         this.left = new TreeNode(left);
         this.right = new TreeNode(right);
         return this;
     }
+
     public TreeNode addLeft(int left) {
         this.left = new TreeNode(left);
         return this;
     }
+
     public TreeNode addRight(int right) {
         this.right = new TreeNode(right);
         return this;
