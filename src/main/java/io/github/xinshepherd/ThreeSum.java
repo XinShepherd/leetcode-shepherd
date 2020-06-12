@@ -39,12 +39,12 @@ public class ThreeSum {
         return results;
     }
 
-    // 比较暴力
+    // 比较暴力 O(n2)
     public List<List<Integer>> threeSum2(int[] nums) {
         int length = nums.length;
         List<List<Integer>> result = new ArrayList<>();
         for (int i = 0; i < length; i++) {
-            int sum = 0 - nums[i];
+            int sum = -nums[i];
             Set<Integer> set = new HashSet<>();
             for (int j = i + 1; j < length; j++) {
                 int sub = sum - nums[j];
