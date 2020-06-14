@@ -19,9 +19,6 @@ public class FindBestValue {
         int len = arr.length;
         int mid = target / len;
         int temp = target;
-        if (arr[0] >= mid) {
-            return getAns(mid, len, target);
-        }
         for (int i = 0; i < len; i++) {
             int num = arr[i];
             if (num > mid) {
@@ -43,31 +40,27 @@ public class FindBestValue {
     public int findBestValue2(int[] arr, int target) {
         if (arr.length == 0)
             return 0;
-        List<Integer> nums = new ArrayList<>();
-        for (int num : arr) {
-            nums.add(num);
-        }
         int len = arr.length;
         int mid = target / len;
         int temp = target;
         int maxNum = 0;
-        while (!nums.isEmpty()) {
-            List<Integer> tempList = new ArrayList<>();
-            for (int num : nums) {
-                if (num > mid) {
-                    tempList.add(num);
-                } else {
+        while (len > 0) {
+            int tempLen = len;
+            for (int i = 0;  i < arr.length; i++) {
+                int num = arr[i];
+                if (num != -1 && num <= mid) {
                     temp -= num;
                     maxNum = Math.max(maxNum, num);
+                    len--;
+                    arr[i] = -1;
                 }
             }
-            if (tempList.isEmpty())
+            if (len == 0)
                 break;
-            mid = temp / tempList.size();
+            mid = temp / len;
             // 表示所有数都大于 mid
-            if (tempList.size() == nums.size())
-                return getAns(mid, tempList.size(), temp);
-            nums = tempList;
+            if (len == tempLen)
+                return getAns(mid, len, temp);
         }
         return maxNum;
     }
