@@ -50,8 +50,10 @@ public class FindBestValue {
                 int num = arr[i];
                 if (num != -1 && num <= mid) {
                     temp -= num;
+                    // 所有数都小于 mid 时返回 maxNum
                     maxNum = Math.max(maxNum, num);
                     len--;
+                    // 表示已经访问过
                     arr[i] = -1;
                 }
             }
