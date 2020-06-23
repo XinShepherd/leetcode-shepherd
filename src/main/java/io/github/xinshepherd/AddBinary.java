@@ -1,7 +1,10 @@
 package io.github.xinshepherd;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * 67. 二进制求和
+ * https://leetcode-cn.com/problems/add-binary/
  *
  * @author Fuxin
  * @since 2020/4/12
@@ -39,9 +42,38 @@ public class AddBinary {
         return sb.reverse().toString();
     }
 
+    public String addBinary2(String a, String b) {
+        char[] aArray = a.toCharArray();
+        char[] bArray = b.toCharArray();
+        int aLen = aArray.length;
+        int bLen = bArray.length;
+        int step = 0;
+        StringBuilder sb = new StringBuilder();
+        int i = aLen - 1, j = bLen - 1;
+        while (i >= 0 || j >= 0) {
+            int sum = 0;
+            if (i >= 0){
+                sum += aArray[i] - '0';
+                i--;
+            }
+            if (j >= 0) {
+                sum += bArray[j] - '0';
+                j--;
+            }
+            sum += step;
+            sb.append(sum % 2);
+            step = sum / 2;
+        }
+        if (step > 0) {
+            sb.append(step);
+        }
+        return sb.reverse().toString();
+    }
+
     public static void main(String[] args) {
         AddBinary binary = new AddBinary();
-        System.out.println(binary.addBinary("11", "1"));
+        assertThat(binary.addBinary("11", "1")).isEqualTo("100");
+        assertThat(binary.addBinary2("11", "1")).isEqualTo("100");
     }
 
 }
