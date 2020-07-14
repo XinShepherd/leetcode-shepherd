@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 // 120. 三角形最小路径和
+// https://leetcode-cn.com/problems/triangle/
 public class MinimumTotal {
 
     public int minimumTotal(List<List<Integer>> triangle) {
@@ -27,9 +30,9 @@ public class MinimumTotal {
             List<Integer> prev = triangle.get(row - 1);
             List<Integer> currentRow = triangle.get(row);
             int size = currentRow.size();
-            int sum;
             for (int i = 0; i < size; i++) {
                 Integer current = currentRow.get(i);
+                int sum;
                 if (i == 0) {
                     sum = current + prev.get(i);
                 } else if (i == size - 1) {
@@ -55,8 +58,8 @@ public class MinimumTotal {
         triangle.add(thirdLine);
         triangle.add(forthLine);
         MinimumTotal minimumTotal = new MinimumTotal();
-        System.out.println(minimumTotal.minimumTotal(triangle));
-        System.out.println(minimumTotal.minimumTotal(new ArrayList<>()));
+        assertThat(minimumTotal.minimumTotal(triangle)).isEqualTo(11);
+        assertThat(minimumTotal.minimumTotal(new ArrayList<>())).isEqualTo(0);
     }
 
 }
