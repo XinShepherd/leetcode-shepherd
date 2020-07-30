@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 // 104. 二叉树的最大深度
 public class MaxDepth {
 
@@ -27,11 +29,20 @@ public class MaxDepth {
         }
     }
 
+    // 另一种递归
+    public int maxDepth2(TreeNode root) {
+        return root == null ? 0 : (Math.max(maxDepth2(root.left), maxDepth2(root.right)) + 1);
+    }
+
     public static void main(String[] args) {
         MaxDepth maxDepth = new MaxDepth();
-        System.out.println(maxDepth.maxDepth(null));
-        System.out.println(maxDepth.maxDepth(TreeNode.demo()));
-        System.out.println(maxDepth.maxDepth(TreeNode.demo2()));
+        assertThat(maxDepth.maxDepth(null)).isEqualTo(0);
+        assertThat(maxDepth.maxDepth(TreeNode.demo())).isEqualTo(3);
+        assertThat(maxDepth.maxDepth(TreeNode.demo2())).isEqualTo(3);
+        assertThat(maxDepth.maxDepth2(null)).isEqualTo(0);
+        assertThat(maxDepth.maxDepth2(TreeNode.demo())).isEqualTo(3);
+        assertThat(maxDepth.maxDepth2(TreeNode.demo2())).isEqualTo(3);
+
     }
 
 }
