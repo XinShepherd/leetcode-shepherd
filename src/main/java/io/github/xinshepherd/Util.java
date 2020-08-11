@@ -13,6 +13,13 @@ public abstract class Util {
         System.out.println();
     }
 
+    public static void printArray(char[] array) {
+        for (char i : array) {
+            System.out.print(i + ",");
+        }
+        System.out.println();
+    }
+
     public static void printArray(Object[] array) {
         for (Object i : array) {
             System.out.print(i + ",");
@@ -23,6 +30,14 @@ public abstract class Util {
     public static void printTwoDimensionalArray(int[][] results) {
         System.out.println("[");
         for (int[] result : results) {
+            printArray(result);
+        }
+        System.out.println("]");
+    }
+
+    public static void printTwoDimensionalArray(char[][] results) {
+        System.out.println("[");
+        for (char[] result : results) {
             printArray(result);
         }
         System.out.println("]");
