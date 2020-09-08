@@ -10,24 +10,22 @@ import java.util.*;
 public class CombineNK {
 
     public List<List<Integer>> combine(int n, int k) {
-        if (n == 0)
+        if (n == 0 || k > n)
             return Collections.emptyList();
-
         List<List<Integer>> results = new LinkedList<>();
-        Deque<Integer> result = new ArrayDeque<>();
-        backtrack(n, 1, k, result, results);
+        Integer[] ans = new Integer[k];
+        backtrack(n, 1, 0, k, ans, results);
         return results;
     }
 
-    void backtrack(int n, int current, int k, Deque<Integer> result, List<List<Integer>> results) {
-        if (result.size() == k) {
-            results.add(new ArrayList<>(result));
+    void backtrack(int n, int current, int size, int k, Integer[] ans, List<List<Integer>> results) {
+        if (size == k) {
+            results.add(new ArrayList<>(Arrays.asList(ans)));
             return;
         }
         for (int i = current; i < n + 1; i++) {
-            result.addLast(i);
-            backtrack(n, i + 1, k, result, results);
-            result.removeLast();
+            ans[size] = i;
+            backtrack(n, i + 1, size + 1, k, ans, results);
         }
     }
 
