@@ -27,6 +27,8 @@ public class ExistsWord {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (board[i][j] == chars[0]) {
+                    if (exists)
+                        return true;
                     dp[i][j] = true;
                     backtrack(board, chars, 1, i, j, dp);
                     dp[i][j] = false;
@@ -37,7 +39,9 @@ public class ExistsWord {
     }
 
     void backtrack(char[][] board, char[] chars, int current, int x, int y, boolean[][] dp) {
-        if (exists || current == chars.length) {
+        if (exists)
+            return;
+        if (current == chars.length) {
             exists = true;
             return;
         }
