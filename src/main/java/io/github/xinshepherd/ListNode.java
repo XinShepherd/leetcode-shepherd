@@ -42,6 +42,17 @@ public class ListNode {
         System.out.println(sb.toString());
     }
 
+    static ListNode newInstance(int... elements) {
+        if (elements.length == 0)
+            return null;
+        ListNode head = new ListNode(elements[0]);
+        ListNode temp = head;
+        for (int i = 1; i < elements.length; i++) {
+            temp = temp.append(elements[i]);
+        }
+        return head;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
