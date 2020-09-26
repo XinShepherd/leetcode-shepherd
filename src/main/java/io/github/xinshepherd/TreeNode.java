@@ -1,6 +1,9 @@
 package io.github.xinshepherd;
 
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class TreeNode {
     int val;
     TreeNode left;
@@ -19,6 +22,14 @@ public class TreeNode {
         this.right = right;
     }
 
+    /**
+     * 该方法存在重大漏洞，请使用 {@link #of(Integer...)} 方法
+     *
+     * @param elements 数组元素
+     * @return 完整的树
+     * @deprecated
+     */
+    @Deprecated
     public static TreeNode buildTreeFromArrays(Integer[] elements) {
         TreeNode root = new TreeNode(elements[0]);
         build(root, elements, 1, 1, 1);
@@ -41,7 +52,32 @@ public class TreeNode {
             node.right = new TreeNode(elements[current]);
             build(node.right, elements, newStart, i, newLen);
         }
+    }
 
+    public static TreeNode of(Integer... elements) {
+        if (elements.length == 0)
+            return null;
+        Deque<TreeNode> queue = new LinkedList<>();
+        for (Integer element : elements) {
+            if (element != null) {
+                queue.addLast(new TreeNode(element));
+            } else {
+                queue.addLast(null);
+            }
+        }
+        Deque<TreeNode> current = new LinkedList<>();
+        TreeNode root = queue.removeFirst();
+        current.addLast(root);
+        while (!current.isEmpty()) {
+            TreeNode cur = current.removeFirst();
+            if (cur != null) {
+                cur.left = queue.pollFirst();
+                cur.right = queue.pollFirst();
+                current.addLast(cur.left);
+                current.addLast(cur.right);
+            }
+        }
+        return root;
     }
 
     public TreeNode addLeftAndRight(int left, int right) {
