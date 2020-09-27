@@ -55,6 +55,22 @@ public class LowestCommonAncestorII {
         return findAndMapping(node.right, val, depth + 1);
     }
 
+
+    // 官方题解，用到 BST 的特性
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        TreeNode ancestor = root;
+        while (true) {
+            if (p.val < ancestor.val && q.val < ancestor.val) {
+                ancestor = ancestor.left;
+            } else if (p.val > ancestor.val && q.val > ancestor.val) {
+                ancestor = ancestor.right;
+            } else {
+                break;
+            }
+        }
+        return ancestor;
+    }
+
     public static void main(String[] args) {
         LowestCommonAncestorII lowestCommonAncestorII = new LowestCommonAncestorII();
         TreeNode root = TreeNode.of(6, 2, 8, 0, 4, 7, 9, null, null, 3, 5);
