@@ -10,7 +10,7 @@ public class PostorderTraversal {
 
     public List<Integer> postorderTraversal(TreeNode root) {
         if(root == null) return Collections.emptyList();
-        List<Integer> list = new LinkedList<>();
+//        List<Integer> list = new LinkedList<>();
 //        postorder(root, list);
 //        return list;
         return loop(root);
