@@ -53,15 +53,4 @@ public class ListNode {
         return head;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        ListNode listNode = this;
-        while (listNode != null) {
-            sb.append(listNode.val);
-            sb.append(",");
-            listNode = listNode.next;
-        }
-        return sb.toString();
-    }
 }
