@@ -24,8 +24,9 @@ public class CoinChange {
         for (int i = 1; i <= amount; i++) {
             int temp = Integer.MAX_VALUE;
             for (int coin : coins) {
-                if (i - coin >= 0 && total[i - coin] != Integer.MAX_VALUE) {
-                    temp = Math.min(total[i - coin] + 1, temp);
+                int prev = i - coin;
+                if (prev >= 0 && total[prev] != Integer.MAX_VALUE) {
+                    temp = Math.min(total[prev] + 1, temp);
                 }
             }
             total[i] = temp;

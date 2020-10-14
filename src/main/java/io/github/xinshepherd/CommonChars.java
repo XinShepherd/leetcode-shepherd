@@ -1,8 +1,6 @@
 package io.github.xinshepherd;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -40,12 +38,43 @@ public class CommonChars {
         return ans;
     }
 
+    // 3ms
+    public List<String> commonChars2(String[] A) {
+        int[] minfreq = new int[26];
+        Arrays.fill(minfreq, Integer.MAX_VALUE);
+        for (String word: A) {
+            int[] freq = new int[26];
+            int length = word.length();
+            for (int i = 0; i < length; ++i) {
+                char ch = word.charAt(i);
+                ++freq[ch - 'a'];
+            }
+            boolean hasCommon = false;
+            for (int i = 0; i < 26; ++i) {
+                minfreq[i] = Math.min(minfreq[i], freq[i]);
+                if (minfreq[i] > 0 && minfreq[i] != Integer.MAX_VALUE) {
+                    hasCommon = true;
+                }
+            }
+            if (!hasCommon) {
+                return Collections.emptyList();
+            }
+        }
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < 26; ++i) {
+            for (int j = 0; j < minfreq[i]; ++j) {
+                ans.add(String.valueOf((char) (i + 'a')));
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         CommonChars commonChars = new CommonChars();
-        List<String> strings = commonChars.commonChars(new String[]{"bella", "label", "roller"});
-        assertThat(strings).isEqualTo(Arrays.asList("e", "l", "l"));
-        strings = commonChars.commonChars(new String[]{"cool", "lock", "cook"});
-        assertThat(strings).isEqualTo(Arrays.asList("c","o"));
+        assertThat(commonChars.commonChars(new String[]{"bella", "label", "roller"})).isEqualTo(Arrays.asList("e", "l", "l"));
+        assertThat(commonChars.commonChars(new String[]{"cool", "lock", "cook"})).isEqualTo(Arrays.asList("c","o"));
+        assertThat(commonChars.commonChars2(new String[]{"bella", "label", "roller"})).isEqualTo(Arrays.asList("e", "l", "l"));
+        assertThat(commonChars.commonChars2(new String[]{"cool", "lock", "cook"})).isEqualTo(Arrays.asList("c","o"));
     }
 
 }
