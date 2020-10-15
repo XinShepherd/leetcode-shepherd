@@ -89,12 +89,7 @@ public class ConnectNode {
     // 空间复杂度 O(1)
     public Node connect2(Node root) {
         if (root == null) return null;
-        link(root);
-        return root;
-    }
-
-    void link(Node head) {
-        Node node = head;
+        Node node = root;
         while (node != null) {
             Node hook = new Node();
             Node current = hook;
@@ -111,6 +106,7 @@ public class ConnectNode {
             }
             node = hook.next;
         }
+        return root;
     }
 
     public static void main(String[] args) {
