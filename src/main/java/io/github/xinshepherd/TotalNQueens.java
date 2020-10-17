@@ -2,6 +2,11 @@ package io.github.xinshepherd;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 52. N皇后 II
+ *
+ * https://leetcode-cn.com/problems/n-queens-ii/
+ */
 public class TotalNQueens {
 
     int count = 0;
