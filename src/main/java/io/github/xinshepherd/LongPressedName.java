@@ -40,6 +40,7 @@ public class LongPressedName {
         assertThat(longPressedName.isLongPressedName("saeed", "ssaaedd")).isFalse();
         assertThat(longPressedName.isLongPressedName("leelee", "lleeelee")).isTrue();
         assertThat(longPressedName.isLongPressedName("laiden", "laiden")).isTrue();
+        assertThat(longPressedName.isLongPressedName("", "laiden")).isFalse();
     }
 
 }
