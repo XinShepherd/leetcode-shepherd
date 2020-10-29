@@ -32,11 +32,30 @@ public class UniqueOccurrences {
         return true;
     }
 
+    public boolean uniqueOccurrences2(int[] arr) {
+        int[] counters = new int[2001];
+        for (int i : arr) {
+            counters[i + 1000]++;
+        }
+        Set<Integer> set = new HashSet<>(arr.length);
+        for (int counter : counters) {
+            if (counter > 0) {
+                if (set.contains(counter))
+                    return false;
+                set.add(counter);
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         UniqueOccurrences uniqueOccurrences = new UniqueOccurrences();
         assertThat(uniqueOccurrences.uniqueOccurrences(new int[]{1, 2, 2, 1, 1, 3})).isTrue();
         assertThat(uniqueOccurrences.uniqueOccurrences(new int[]{-3, 0, 1, -3, 1, 1, 1, -3, 10, 0})).isTrue();
         assertThat(uniqueOccurrences.uniqueOccurrences(new int[]{1, 2})).isFalse();
+        assertThat(uniqueOccurrences.uniqueOccurrences2(new int[]{1, 2, 2, 1, 1, 3})).isTrue();
+        assertThat(uniqueOccurrences.uniqueOccurrences2(new int[]{-3, 0, 1, -3, 1, 1, 1, -3, 10, 0})).isTrue();
+        assertThat(uniqueOccurrences.uniqueOccurrences2(new int[]{1, 2})).isFalse();
     }
 
 }
