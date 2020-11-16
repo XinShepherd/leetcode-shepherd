@@ -1,5 +1,10 @@
 package io.github.xinshepherd;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * 704. 二分查找
  *
@@ -9,13 +14,13 @@ package io.github.xinshepherd;
 public class BinarySearch {
 
     public int search(int[] nums, int target) {
-        int left = 0, right = nums.length - 1;
-        while (left <= right) {
+        int left = 0, right = nums.length;
+        while (left < right) {
             int mid = left + right >> 1;
             if (nums[mid] == target)
                 return mid;
             if (nums[mid] > target) {
-                right = mid - 1;
+                right = mid;
             } else {
                 left = mid + 1;
             }
@@ -26,9 +31,10 @@ public class BinarySearch {
     public static void main(String[] args) {
         BinarySearch binarySearch = new BinarySearch();
         int[] nums = {-1, 0, 3, 5, 9, 12};
-        System.out.println(binarySearch.search(nums, 3));
-        System.out.println(binarySearch.search(nums, 5));
-        System.out.println(binarySearch.search(nums, 6));
-        System.out.println(binarySearch.search(nums, -1));
+        assertThat(binarySearch.search(nums, 3)).isEqualTo(2);
+        assertThat(binarySearch.search(nums, 5)).isEqualTo(3);
+        assertThat(binarySearch.search(nums, 6)).isEqualTo(-1);
+        assertThat(binarySearch.search(nums, -1)).isEqualTo(0);
+        List<String> list = new ArrayList<>();
     }
 }
