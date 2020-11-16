@@ -23,7 +23,7 @@ public class ReconstructQueue {
                 return a[1] - b[1];
             return diff;
         });
-
+        // [[7, 0], [7, 1], [6, 1], [5, 0], [5, 2], [4, 4]]
         List<int[]> ans = new ArrayList<>();
         for (int[] person : people) {
             ans.add(person[1], person);
