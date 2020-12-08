@@ -25,8 +25,8 @@ public class SplitIntoFibonacci {
                 long l = Long.parseLong(s);
                 if (l > Integer.MAX_VALUE)
                     break;
-                int cur = (int) l;
-                ans.add(cur);
+                int num = (int) l;
+                ans.add(num);
                 boolean finished = backtrack(ans, i, S);
                 if (finished)
                     return ans;
@@ -54,9 +54,9 @@ public class SplitIntoFibonacci {
             long l = Long.parseLong(sub);
             if (l > Integer.MAX_VALUE)
                 break;
-            int cur = (int) l;
-            if (ans.size() < 2 || sum == cur) {
-                ans.add(cur);
+            int num = (int) l;
+            if (ans.size() < 2 || sum == num) {
+                ans.add(num);
                 boolean finished = backtrack(ans, j, S);
                 if (finished)
                     return true;
