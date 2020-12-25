@@ -54,11 +54,34 @@ public class Candy {
                 }
             }
         }
-        int ans = candies.length;
+        int ans = len;
         for (int candy : candies) {
             ans += candy;
         }
         return ans;
+    }
+
+    // 官方答案
+    public int candy3(int[] ratings) {
+        int n = ratings.length;
+        int ret = 1;
+        int inc = 1, dec = 0, pre = 1;
+        for (int i = 1; i < n; i++) {
+            if (ratings[i] >= ratings[i - 1]) {
+                dec = 0;
+                pre = ratings[i] == ratings[i - 1] ? 1 : pre + 1;
+                ret += pre;
+                inc = pre;
+            } else {
+                dec++;
+                if (dec == inc) {
+                    dec++;
+                }
+                ret += dec;
+                pre = 1;
+            }
+        }
+        return ret;
     }
 
     public static void main(String[] args) {
@@ -70,6 +93,7 @@ public class Candy {
         assertThat(candy.candy2(new int[]{1, 0, 2})).isEqualTo(5);
         assertThat(candy.candy2(new int[]{1, 2, 2})).isEqualTo(4);
         assertThat(candy.candy2(new int[]{3, 2, 2, 1, 4})).isEqualTo(8);
+        assertThat(candy.candy2(new int[]{1, 2, 87, 87, 87, 2, 1})).isEqualTo(13);
 
     }
 
