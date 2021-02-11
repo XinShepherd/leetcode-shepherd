@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * 剑指 Offer 40. 最小的k个数
- *
+ * <p>
  * https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
  *
  * @author Fuxin
@@ -68,10 +68,80 @@ public class GetLeastNumbers {
         arr[j] = temp;
     }
 
+    public int[] getLeastNumbers2(int[] arr, int k) {
+        SolutionII solutionII = new SolutionII();
+        return solutionII.getLeastNumbers(arr, k);
+    }
+
+    // 最大堆
+    static class SolutionII {
+
+        private int[] elements;
+        private int size;
+
+        public int[] getLeastNumbers(int[] arr, int k) {
+            if (arr.length <= k)
+                return arr;
+            if (k <= 0) {
+                return new int[]{};
+            }
+            elements = new int[k];
+            size = 0;
+            for (int num : arr) {
+                add(num);
+            }
+            return elements;
+        }
+
+        private void add(int num) {
+            int i = size;
+            if (i < elements.length) {
+                size++;
+                siftUp(i, num);
+            } else if (elements[0] > num) {
+                siftDown(0, num);
+            }
+        }
+
+        private void siftUp(int k, int num) {
+            while (k > 0) {
+                int parent = (k - 1) >> 1;
+                int e = elements[parent];
+                if (e >= num)
+                    break;
+                elements[k] = e;
+                k = parent;
+            }
+            elements[k] = num;
+        }
+
+        private void siftDown(int k, int num) {
+            int half = size >>> 1;
+            while (k < half) {
+                int child = (k << 1) + 1;
+                int right = child + 1;
+                if (right < size) {
+                    child = elements[child] > elements[right] ? child : right;
+                }
+                int e = elements[child];
+                if (num >= e) {
+                    break;
+                }
+                elements[k] = e;
+                k = child;
+            }
+            elements[k] = num;
+        }
+
+    }
+
     public static void main(String[] args) {
         GetLeastNumbers getLeastNumbers = new GetLeastNumbers();
         assertThat(getLeastNumbers.getLeastNumbers(new int[]{3, 2, 1}, 2)).isEqualTo(new int[]{1, 2});
         assertThat(getLeastNumbers.getLeastNumbers(new int[]{0, 1, 2, 1}, 1)).isEqualTo(new int[]{0});
+        assertThat(getLeastNumbers.getLeastNumbers2(new int[]{3, 2, 1}, 2)).containsExactlyInAnyOrder(1, 2);
+        assertThat(getLeastNumbers.getLeastNumbers2(new int[]{0, 1, 2, 1}, 1)).isEqualTo(new int[]{0});
+        assertThat(getLeastNumbers.getLeastNumbers2(new int[]{0, 0, 1, 2, 4, 2, 2, 3, 1, 4}, 8)).containsExactlyInAnyOrder(0, 0, 1, 1, 2, 2, 2, 3);
     }
 
 }
