@@ -5,8 +5,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * 119. 杨辉三角 II
+ *
+ * https://leetcode-cn.com/problems/pascals-triangle-ii/
  *
  * @author Fuxin
  * @since 2020/4/24
@@ -34,6 +38,31 @@ public class YanghuiII {
             ans[j] = 1;
         }
         return Arrays.asList(ans);
+    }
+
+    public List<Integer> getRowOptimization(int rowIndex) {
+        int len = rowIndex + 1;
+        int[] row = new int[len];
+        row[0] = 1;
+        if (len > 1) {
+            row[1] = 1;
+        }
+        for (int i = 2; i < len; i++) {
+            int j = 1;
+            int cur = row[j];
+            int pre = row[j - 1];
+            while (j < i) {
+                row[j] = row[j] + pre;
+                pre = cur;
+                cur = row[++j];
+            }
+            row[j] = 1;
+        }
+        List<Integer> ans = new ArrayList<>(len);
+        for (int i : row) {
+            ans.add(i);
+        }
+        return ans;
     }
 
     public List<Integer> getRow1(int rowIndex) {
@@ -65,7 +94,8 @@ public class YanghuiII {
 
     public static void main(String[] args) {
         YanghuiII yanghuiII = new YanghuiII();
-        System.out.println(yanghuiII.getRow(3));
+        assertThat(yanghuiII.getRow(3)).containsExactly(1, 3, 3, 1);
+        assertThat(yanghuiII.getRowOptimization(3)).containsExactly(1, 3, 3, 1);
     }
 
 
