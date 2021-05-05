@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 740. 删除并获得点数
+ * 743. 网络延迟时间
  *
- * https://leetcode-cn.com/problems/delete-and-earn/
+ * https://leetcode-cn.com/problems/network-delay-time/
  *
  * @author Fuxin
  * @since 2021/5/5
