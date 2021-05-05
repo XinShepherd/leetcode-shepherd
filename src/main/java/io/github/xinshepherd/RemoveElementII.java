@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 
 /**
  * 27. 移除元素
+ * https://leetcode-cn.com/problems/remove-element/
  *
  * @author Fuxin
  * @since 2021/4/19
