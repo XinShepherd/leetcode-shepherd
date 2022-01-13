@@ -1,7 +1,10 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 55. 跳跃游戏
+ * https://leetcode-cn.com/problems/jump-game/
  *
  * @author Fuxin
  * @since 2020/4/17
@@ -27,10 +30,9 @@ public class CanJump {
 
     public static void main(String[] args) {
         CanJump canJump = new CanJump();
-        System.out.println(canJump.canJump(new int[]{3, 2, 1, 0, 4}));
-        System.out.println(canJump.canJump(new int[]{2, 3, 1, 1, 4}));
-        System.out.println(canJump.canJump(new int[]{1, 2, 3}));
-
+        Assertions.assertThat(canJump.canJump(new int[]{2, 3, 1, 1, 4})).isTrue();
+        Assertions.assertThat(canJump.canJump(new int[]{3, 2, 1, 0, 4})).isFalse();
+        Assertions.assertThat(canJump.canJump(new int[]{1, 2, 3})).isTrue();
     }
 
 }
