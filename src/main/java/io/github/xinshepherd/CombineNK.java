@@ -1,9 +1,12 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 /**
  * 77. 组合
+ * https://leetcode-cn.com/problems/combinations/
  * @author Fuxin
  * @since 2020/2/26 9:31
  */
@@ -31,11 +34,16 @@ public class CombineNK {
 
     public static void main(String[] args) {
         CombineNK combineNK = new CombineNK();
-        System.out.println(combineNK.combine(0, 1));
-        System.out.println(combineNK.combine(1, 1));
-        System.out.println(combineNK.combine(1, 2));
-        System.out.println(combineNK.combine(4, 2));
-        System.out.println(combineNK.combine(4, 3));
+        Assertions.assertThat(combineNK.combine(1, 1)).isEqualTo(Collections.singletonList(Collections.singletonList(1)));
+        Assertions.assertThat(combineNK.combine(4, 2)).containsExactlyInAnyOrder(
+                Arrays.asList(2, 4),
+                Arrays.asList(3, 4),
+                Arrays.asList(2, 3),
+                Arrays.asList(1, 2),
+                Arrays.asList(1, 3),
+                Arrays.asList(1, 4)
+        );
+        System.out.println();
     }
 
 }
