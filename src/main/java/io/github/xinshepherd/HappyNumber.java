@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 202. 快乐数
  * https://leetcode-cn.com/problems/happy-number/
@@ -28,6 +30,8 @@ public class HappyNumber {
 
     public static void main(String[] args) {
         HappyNumber happyNumber = new HappyNumber();
-        System.out.println(happyNumber.isHappy(18));
+        Assertions.assertThat(happyNumber.isHappy(18)).isFalse();
+        Assertions.assertThat(happyNumber.isHappy(19)).isTrue();
+        Assertions.assertThat(happyNumber.isHappy(2)).isFalse();
     }
 }
