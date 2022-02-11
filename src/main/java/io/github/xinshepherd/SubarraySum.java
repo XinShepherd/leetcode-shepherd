@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,8 +46,8 @@ public class SubarraySum {
 
     public static void main(String[] args) {
         SubarraySum sum = new SubarraySum();
-        System.out.println(sum.subarraySum(new int[]{1, 1, 1}, 2));
-        System.out.println(sum.subarraySum2(new int[]{1, 1, 1}, 2));
+        Assertions.assertThat(sum.subarraySum(new int[]{1, 1, 1}, 2)).isEqualTo(2);
+        Assertions.assertThat(sum.subarraySum2(new int[]{1, 1, 1}, 2)).isEqualTo(2);
     }
 
 }
