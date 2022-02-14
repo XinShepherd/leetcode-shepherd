@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -51,22 +53,22 @@ public class NumIslands {
 
     public static void main(String[] args) {
         NumIslands numIslands = new NumIslands();
-        System.out.println(numIslands.numIslands(new char[][]{
+        Assertions.assertThat(numIslands.numIslands(new char[][]{
                 "11110".toCharArray(),
                 "11010".toCharArray(),
                 "11000".toCharArray(),
                 "00000".toCharArray(),
-        }));
-        System.out.println(numIslands.numIslands(new char[][]{
+        })).isEqualTo(1);
+        Assertions.assertThat(numIslands.numIslands(new char[][]{
                 "11000".toCharArray(),
                 "11000".toCharArray(),
                 "00100".toCharArray(),
                 "00011".toCharArray(),
-        }));
-        System.out.println(numIslands.numIslands(new char[][]{
+        })).isEqualTo(3);
+        Assertions.assertThat(numIslands.numIslands(new char[][]{
                 "1".toCharArray(),
                 "1".toCharArray(),
-        }));
+        })).isEqualTo(1);
     }
 
 }

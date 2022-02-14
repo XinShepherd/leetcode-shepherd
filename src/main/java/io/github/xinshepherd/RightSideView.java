@@ -1,6 +1,10 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,10 +42,10 @@ public class RightSideView {
 
     public static void main(String[] args) {
         RightSideView sideView = new RightSideView();
-        System.out.println(sideView.rightSideView(null));
-        System.out.println(sideView.rightSideView(TreeNode.demo2()));
-        System.out.println(sideView.rightSideView(TreeNode.demo5()));
-        System.out.println(sideView.rightSideView(TreeNode.demo6()));
+        Assertions.assertThat(sideView.rightSideView(null)).isEqualTo(Collections.emptyList());
+        Assertions.assertThat(sideView.rightSideView(TreeNode.demo2())).isEqualTo(Arrays.asList(3, 20, 7));
+        Assertions.assertThat(sideView.rightSideView(TreeNode.demo5())).isEqualTo(Arrays.asList(1, 3, 4));
+        Assertions.assertThat(sideView.rightSideView(TreeNode.demo6())).isEqualTo(Arrays.asList(1, 3, 5));
     }
 
 }
