@@ -1,9 +1,13 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Arrays;
 
 /**
  * 1160. 拼写单词
+ *
+ * https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/
  *
  * @author Fuxin
  * @since 2020/3/17 9:47
@@ -44,8 +48,8 @@ public class CountCharacters {
 
     public static void main(String[] args) {
         CountCharacters countCharacters = new CountCharacters();
-        System.out.println(countCharacters.countCharacters(new String[]{"cat", "bt", "hat", "tree"}, "atach"));
-        System.out.println(countCharacters.countCharacters(new String[]{"hello", "world", "leetcode"}, "welldonehoneyr"));
+        Assertions.assertThat(countCharacters.countCharacters(new String[]{"cat", "bt", "hat", "tree"}, "atach")).isEqualTo(6);
+        Assertions.assertThat(countCharacters.countCharacters(new String[]{"hello", "world", "leetcode"}, "welldonehoneyr")).isEqualTo(10);
     }
 
 }
