@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,8 +30,8 @@ public class MajorityElement {
 
     public static void main(String[] args) {
         MajorityElement element = new MajorityElement();
-        System.out.println(element.majorityElement(new int[]{3, 2, 3}));
-        System.out.println(element.majorityElement(new int[]{2, 2, 1, 1, 1, 2, 2}));
+        Assertions.assertThat(element.majorityElement(new int[]{3, 2, 3})).isEqualTo(3);
+        Assertions.assertThat(element.majorityElement(new int[]{2, 2, 1, 1, 1, 2, 2})).isEqualTo(2);
     }
 
 
