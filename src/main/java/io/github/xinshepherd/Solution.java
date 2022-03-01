@@ -1,8 +1,15 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 3. 无重复字符的最长子串
+ *
+ * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+ */
 public class Solution {
 
     public int longestSubStr(String str) {
@@ -26,8 +33,8 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.longestSubStr("abcabcbb"));
-        System.out.println(solution.longestSubStr("bbbbb"));
-        System.out.println(solution.longestSubStr("pwwkew"));
+        Assertions.assertThat(solution.longestSubStr("abcabcbb")).isEqualTo(3);
+        Assertions.assertThat(solution.longestSubStr("bbbbb")).isEqualTo(1);
+        Assertions.assertThat(solution.longestSubStr("pwwkew")).isEqualTo(3);
     }
 }
