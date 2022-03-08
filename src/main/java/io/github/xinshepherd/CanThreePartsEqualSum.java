@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 1013. 将数组分成和相等的三个部分
  *
@@ -38,9 +40,9 @@ public class CanThreePartsEqualSum {
 
     public static void main(String[] args) {
         CanThreePartsEqualSum canThreePartsEqualSum = new CanThreePartsEqualSum();
-        System.out.println(canThreePartsEqualSum.canThreePartsEqualSum(new int[]{0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1}));
-        System.out.println(canThreePartsEqualSum.canThreePartsEqualSum(new int[]{0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1}));
-        System.out.println(canThreePartsEqualSum.canThreePartsEqualSum(new int[]{3, 3, 6, 5, -2, 2, 5, 1, -9, 4}));
+        Assertions.assertThat(canThreePartsEqualSum.canThreePartsEqualSum(new int[]{0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1})).isTrue();
+        Assertions.assertThat(canThreePartsEqualSum.canThreePartsEqualSum(new int[]{0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1})).isFalse();
+        Assertions.assertThat(canThreePartsEqualSum.canThreePartsEqualSum(new int[]{3, 3, 6, 5, -2, 2, 5, 1, -9, 4})).isTrue();
     }
 
 }
