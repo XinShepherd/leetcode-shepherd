@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 70. 爬楼梯
  *
@@ -38,10 +40,10 @@ public class ClimbStairs {
 
     public static void main(String[] args) {
         ClimbStairs stairs = new ClimbStairs();
-        System.out.println(stairs.climbStairs(1));
-        System.out.println(stairs.climbStairs(2));
-        System.out.println(stairs.climbStairs(3));
-        System.out.println(stairs.climbStairs(4));
+        Assertions.assertThat(stairs.climbStairs(1)).isEqualTo(1);
+        Assertions.assertThat(stairs.climbStairs(2)).isEqualTo(2);
+        Assertions.assertThat(stairs.climbStairs(3)).isEqualTo(3);
+        Assertions.assertThat(stairs.climbStairs(4)).isEqualTo(5);
     }
 
 }
