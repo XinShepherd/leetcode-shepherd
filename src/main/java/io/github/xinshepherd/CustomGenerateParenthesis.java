@@ -1,11 +1,16 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * 复习：
  * 22. 括号生成
+ *
+ * https://leetcode-cn.com/problems/generate-parentheses/
  *
  * @author Fuxin
  * @since 2020/4/9
@@ -33,6 +38,6 @@ public class CustomGenerateParenthesis {
 
     public static void main(String[] args) {
         CustomGenerateParenthesis parenthesis = new CustomGenerateParenthesis();
-        System.out.println(parenthesis.generateParenthesis(3));
+        Assertions.assertThat(parenthesis.generateParenthesis(3)).isEqualTo(Arrays.asList("((()))", "(()())", "(())()", "()(())", "()()()"));
     }
 }
