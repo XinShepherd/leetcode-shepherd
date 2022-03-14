@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 // 39. 组合总和
@@ -44,8 +46,15 @@ public class CombinationSum {
 
     public static void main(String[] args) {
         CombinationSum combinationSum = new CombinationSum();
-        System.out.println(combinationSum.combinationSum(new int[]{2, 3, 5}, 8));
-        System.out.println(combinationSum.combinationSum(new int[]{2, 3, 6, 7}, 7));
+        Assertions.assertThat(combinationSum.combinationSum(new int[]{2, 3, 5}, 8)).isEqualTo(Arrays.asList(
+                Arrays.asList(2, 2, 2, 2),
+                Arrays.asList(2, 3, 3),
+                Arrays.asList(3, 5)
+        ));
+        Assertions.assertThat(combinationSum.combinationSum(new int[]{2, 3, 6, 7}, 7)).isEqualTo(Arrays.asList(
+                Arrays.asList(2, 2, 3),
+                Arrays.asList(7)
+        ));
     }
 
 }
