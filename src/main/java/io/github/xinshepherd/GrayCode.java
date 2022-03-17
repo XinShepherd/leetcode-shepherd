@@ -1,6 +1,9 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,11 +30,11 @@ public class GrayCode {
     public static void main(String[] args) {
 
         GrayCode grayCode = new GrayCode();
-        System.out.println(grayCode.grayCode(0));
-        System.out.println(grayCode.grayCode(1));
-        System.out.println(grayCode.grayCode(2));
-        System.out.println(grayCode.grayCode(3));
-        System.out.println(grayCode.grayCode(4));
+        Assertions.assertThat(grayCode.grayCode(0)).isEqualTo(Arrays.asList(0));
+        Assertions.assertThat(grayCode.grayCode(1)).isEqualTo(Arrays.asList(0, 1));
+        Assertions.assertThat(grayCode.grayCode(2)).isEqualTo(Arrays.asList(0, 1, 3, 2));
+        Assertions.assertThat(grayCode.grayCode(3)).isEqualTo(Arrays.asList(0, 1, 3, 2, 6, 7, 5, 4));
+        Assertions.assertThat(grayCode.grayCode(4)).isEqualTo(Arrays.asList(0, 1, 3, 2, 6, 7, 5, 4, 12, 13, 15, 14, 10, 11, 9, 8));
     }
 
 }
