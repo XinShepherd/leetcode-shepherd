@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 /**
@@ -42,8 +44,20 @@ public class CombinationSum2 {
 
     public static void main(String[] args) {
         CombinationSum2 combinationSum2 = new CombinationSum2();
-        System.out.println(combinationSum2.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
-        System.out.println(combinationSum2.combinationSum2(new int[]{2, 5, 2, 1, 2}, 5));
+        Assertions.assertThat(combinationSum2.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8)).isEqualTo(
+                Arrays.asList(
+                        Arrays.asList(1, 1, 6),
+                        Arrays.asList(1, 2, 5),
+                        Arrays.asList(1, 7),
+                        Arrays.asList(2, 6)
+                )
+        );
+        Assertions.assertThat(combinationSum2.combinationSum2(new int[]{2, 5, 2, 1, 2}, 5)).isEqualTo(
+                Arrays.asList(
+                        Arrays.asList(1, 2, 2),
+                        Arrays.asList(5)
+                )
+        );
     }
 
 }
