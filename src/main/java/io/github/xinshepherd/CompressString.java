@@ -1,7 +1,11 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 面试题 01.06. 字符串压缩
+ *
+ * https://leetcode-cn.com/problems/compress-string-lcci/
  *
  * @author Fuxin
  * @since 2020/3/16 8:57
@@ -33,12 +37,12 @@ public class CompressString {
 
     public static void main(String[] args) {
         CompressString compressString = new CompressString();
-        System.out.println(compressString.compressString(""));
-        System.out.println(compressString.compressString("a"));
-        System.out.println(compressString.compressString("abc"));
-        System.out.println(compressString.compressString("aaa"));
-        System.out.println(compressString.compressString("aabcccccaaa"));
-        System.out.println(compressString.compressString("abbccd"));
+        Assertions.assertThat(compressString.compressString("")).isEqualTo("");
+        Assertions.assertThat(compressString.compressString("a")).isEqualTo("a");
+        Assertions.assertThat(compressString.compressString("abc")).isEqualTo("abc");
+        Assertions.assertThat(compressString.compressString("aaa")).isEqualTo("a3");
+        Assertions.assertThat(compressString.compressString("aabcccccaaa")).isEqualTo("a2b1c5a3");
+        Assertions.assertThat(compressString.compressString("abbccd")).isEqualTo("abbccd");
     }
 
 }
