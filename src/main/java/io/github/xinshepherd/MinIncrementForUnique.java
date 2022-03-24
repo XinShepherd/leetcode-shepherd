@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Arrays;
 
 /**
@@ -31,7 +33,7 @@ public class MinIncrementForUnique {
 
     public static void main(String[] args) {
         MinIncrementForUnique unique = new MinIncrementForUnique();
-        System.out.println(unique.minIncrementForUnique(new int[]{1, 2, 2}));
-        System.out.println(unique.minIncrementForUnique(new int[]{3, 2, 1, 2, 1, 7}));
+        Assertions.assertThat(unique.minIncrementForUnique(new int[]{1, 2, 2})).isEqualTo(1);
+        Assertions.assertThat(unique.minIncrementForUnique(new int[]{3, 2, 1, 2, 1, 7})).isEqualTo(6);
     }
 }
