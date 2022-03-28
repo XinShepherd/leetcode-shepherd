@@ -1,6 +1,11 @@
 package io.github.xinshepherd;
 
-// 121. 买卖股票的最佳时机
+import org.assertj.core.api.Assertions;
+
+/**
+ * 121. 买卖股票的最佳时机
+ * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+ */
 public class MaxProfit {
 
     public int maxProfit(int[] prices) {
@@ -35,7 +40,8 @@ public class MaxProfit {
 
     public static void main(String[] args) {
         MaxProfit maxProfit = new MaxProfit();
-        System.out.println(maxProfit.maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
+        Assertions.assertThat(maxProfit.maxProfit(new int[]{7, 1, 5, 3, 6, 4})).isEqualTo(5);
+        Assertions.assertThat(maxProfit.maxProfit(new int[]{7, 6, 4, 3, 1})).isEqualTo(0);
 
     }
 
