@@ -1,11 +1,10 @@
 package io.github.xinshepherd;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import org.assertj.core.api.Assertions;
 
-// 131. 分割回文串
+import java.util.*;
+
+// 131. 分割回文串 https://leetcode-cn.com/problems/palindrome-partitioning/
 public class PartitionPalindrome {
 
     public List<List<String>> partition(String s) {
@@ -46,14 +45,22 @@ public class PartitionPalindrome {
 
     public static void main(String[] args) {
         PartitionPalindrome partitionPalindrome = new PartitionPalindrome();
-        List<List<String>> aab = partitionPalindrome.partition("aab");
-        System.out.println(aab);
-
-        List<List<String>> aabbcdd = partitionPalindrome.partition("aabbcdd");
-        System.out.println(aabbcdd);
-
-        // 其他情况
-        System.out.println(partitionPalindrome.partition(""));
-        System.out.println(partitionPalindrome.partition("a"));
+        Assertions.assertThat(partitionPalindrome.partition("aab")).isEqualTo(Arrays.asList(
+                Arrays.asList("a", "a", "b"), Arrays.asList("aa", "b")
+        ));
+        Assertions.assertThat(partitionPalindrome.partition("aabbcdd")).isEqualTo(Arrays.asList(
+                Arrays.asList("a", "a", "b", "b", "c", "d", "d"),
+                Arrays.asList("a", "a", "b", "b", "c", "dd"),
+                Arrays.asList("a", "a", "bb", "c", "d", "d"),
+                Arrays.asList("a", "a", "bb", "c", "dd"),
+                Arrays.asList("aa", "b", "b", "c", "d", "d"),
+                Arrays.asList("aa", "b", "b", "c", "dd"),
+                Arrays.asList("aa", "bb", "c", "d", "d"),
+                Arrays.asList("aa", "bb", "c", "dd")
+        ));
+        Assertions.assertThat(partitionPalindrome.partition("")).isEqualTo(Arrays.asList());
+        Assertions.assertThat(partitionPalindrome.partition("a")).isEqualTo(Arrays.asList(
+                Arrays.asList("a")
+        ));
     }
 }
