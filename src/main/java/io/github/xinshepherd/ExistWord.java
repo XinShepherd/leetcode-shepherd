@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  *
  * 79. 单词搜索
@@ -60,8 +62,8 @@ public class ExistWord {
                         new char[]{'S', 'F', 'C', 'S'},
                         new char[]{'A', 'D', 'E', 'E'}
                 };
-        System.out.println(existWord.exist(board, "ABCCED"));
-        System.out.println(existWord.exist(board, "SEE"));
-        System.out.println(existWord.exist(board, "ABCB"));
+        Assertions.assertThat(existWord.exist(board, "ABCCED")).isTrue();
+        Assertions.assertThat(existWord.exist(board, "SEE")).isTrue();
+        Assertions.assertThat(existWord.exist(board, "ABCB")).isFalse();
     }
 }
