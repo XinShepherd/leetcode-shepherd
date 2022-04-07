@@ -1,7 +1,10 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 38. 外观数列
+ * https://leetcode-cn.com/problems/count-and-say/
  *
  * @author Fuxin
  * @since 2020/2/25 9:58
@@ -37,12 +40,12 @@ public class CountAndSay {
 
     public static void main(String[] args) {
         CountAndSay countAndSay = new CountAndSay();
-        System.out.println(countAndSay.countAndSay(0));
-        System.out.println(countAndSay.countAndSay(1));
-        System.out.println(countAndSay.countAndSay(3));
-        System.out.println(countAndSay.countAndSay(4));
-        System.out.println(countAndSay.countAndSay(5));
-        System.out.println(countAndSay.countAndSay(6));
+        Assertions.assertThat(countAndSay.countAndSay(0)).isEqualTo("");
+        Assertions.assertThat(countAndSay.countAndSay(1)).isEqualTo("1");
+        Assertions.assertThat(countAndSay.countAndSay(3)).isEqualTo("21");
+        Assertions.assertThat(countAndSay.countAndSay(4)).isEqualTo("1211");
+        Assertions.assertThat(countAndSay.countAndSay(5)).isEqualTo("111221");
+        Assertions.assertThat(countAndSay.countAndSay(6)).isEqualTo("312211");
     }
 
 }
