@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 public class RemoveDuplicates {
 
     public int removeDuplicates(int[] nums) {
@@ -23,11 +25,11 @@ public class RemoveDuplicates {
 
     public static void main(String[] args) {
         RemoveDuplicates removeDuplicates = new RemoveDuplicates();
-        System.out.println(removeDuplicates.removeDuplicates(new int[]{1}));
-        System.out.println(removeDuplicates.removeDuplicates(new int[]{1, 2}));
-        System.out.println(removeDuplicates.removeDuplicates(new int[]{1, 2, 3}));
-        System.out.println(removeDuplicates.removeDuplicates(new int[]{1, 1, 2}));
-        System.out.println(removeDuplicates.removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
+        Assertions.assertThat(removeDuplicates.removeDuplicates(new int[]{1})).isEqualTo(1);
+        Assertions.assertThat(removeDuplicates.removeDuplicates(new int[]{1, 2})).isEqualTo(2);
+        Assertions.assertThat(removeDuplicates.removeDuplicates(new int[]{1, 2, 3})).isEqualTo(3);
+        Assertions.assertThat(removeDuplicates.removeDuplicates(new int[]{1, 1, 2})).isEqualTo(2);
+        Assertions.assertThat(removeDuplicates.removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4})).isEqualTo(5);
     }
 
 }
