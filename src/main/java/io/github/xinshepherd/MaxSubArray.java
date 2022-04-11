@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 53. 最大子序和
  *
@@ -26,10 +28,10 @@ public class MaxSubArray {
 
     public static void main(String[] args) {
         MaxSubArray maxSubArray = new MaxSubArray();
-        System.out.println(maxSubArray.maxSubArray(new int[]{1, -2}));
-        System.out.println(maxSubArray.maxSubArray(new int[]{-2}));
-        System.out.println(maxSubArray.maxSubArray(new int[]{2, -3, 2, -1}));
-        System.out.println(maxSubArray.maxSubArray(new int[]{2, -3, 2, -1, 2, -1, 1, 3}));
-        System.out.println(maxSubArray.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+        Assertions.assertThat(maxSubArray.maxSubArray(new int[]{1, -2})).isEqualTo(1);
+        Assertions.assertThat(maxSubArray.maxSubArray(new int[]{-2})).isEqualTo(-2);
+        Assertions.assertThat(maxSubArray.maxSubArray(new int[]{2, -3, 2, -1})).isEqualTo(2);
+        Assertions.assertThat(maxSubArray.maxSubArray(new int[]{2, -3, 2, -1, 2, -1, 1, 3})).isEqualTo(6);
+        Assertions.assertThat(maxSubArray.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})).isEqualTo(6);
     }
 }
