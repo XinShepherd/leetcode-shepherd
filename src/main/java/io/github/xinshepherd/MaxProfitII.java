@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 122. 买卖股票的最佳时机 II
  *
@@ -29,9 +31,9 @@ public class MaxProfitII {
 
     public static void main(String[] args) {
         MaxProfitII maxProfitII = new MaxProfitII();
-        System.out.println(maxProfitII.maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(maxProfitII.maxProfit(new int[]{1, 2, 3, 4, 5}));
-        System.out.println(maxProfitII.maxProfit(new int[]{7, 6, 4, 3, 1}));
-        System.out.println(maxProfitII.maxProfit(new int[]{1}));
+        Assertions.assertThat(maxProfitII.maxProfit(new int[]{7, 1, 5, 3, 6, 4})).isEqualTo(7);
+        Assertions.assertThat(maxProfitII.maxProfit(new int[]{1, 2, 3, 4, 5})).isEqualTo(4);
+        Assertions.assertThat(maxProfitII.maxProfit(new int[]{7, 6, 4, 3, 1})).isEqualTo(0);
+        Assertions.assertThat(maxProfitII.maxProfit(new int[]{1})).isEqualTo(0);
     }
 }
