@@ -1,9 +1,16 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-// 22. 括号生成
+/**
+ * 22. 括号生成
+ *
+ * https://leetcode-cn.com/problems/generate-parentheses/solution/gua-hao-sheng-cheng-by-leetcode-solution/
+ */
 public class GenerateParenthesis {
 
     public List<String> generateParenthesis(int n) {
@@ -28,7 +35,11 @@ public class GenerateParenthesis {
 
     public static void main(String[] args) {
         GenerateParenthesis parenthesis = new GenerateParenthesis();
-        System.out.println(parenthesis.generateParenthesis(3));
-        System.out.println(parenthesis.generateParenthesis(4));
+        Assertions.assertThat(parenthesis.generateParenthesis(3)).isEqualTo(Arrays.asList(
+                "((()))","(()())","(())()","()(())","()()()"
+        ));
+        Assertions.assertThat(parenthesis.generateParenthesis(1)).isEqualTo(Arrays.asList(
+                "()"
+        ));
     }
 }
