@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 // 509. 斐波那契数
 public class Fibonacci {
 
@@ -50,10 +52,9 @@ public class Fibonacci {
 
     public static void main(String[] args) {
         Fibonacci fibonacci = new Fibonacci();
-        System.out.println(fibonacci.fib(0));
-        System.out.println(fibonacci.fib(1));
-        System.out.println(fibonacci.fib(4));
-
-        System.out.println(fibonacci.fib(20));
+        Assertions.assertThat(fibonacci.fib(0)).isEqualTo(0);
+        Assertions.assertThat(fibonacci.fib(1)).isEqualTo(1);
+        Assertions.assertThat(fibonacci.fib(4)).isEqualTo(3);
+        Assertions.assertThat(fibonacci.fib(20)).isEqualTo(6765);
     }
 }
