@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 面试题 08.11. 硬币
  *
@@ -26,10 +28,10 @@ public class WaysToChange {
 
     public static void main(String[] args) {
         WaysToChange change = new WaysToChange();
-        System.out.println(change.waysToChange(3));
-        System.out.println(change.waysToChange(5));
-        System.out.println(change.waysToChange(10));
-        System.out.println(change.waysToChange(25));
+        Assertions.assertThat(change.waysToChange(3)).isEqualTo(1);
+        Assertions.assertThat(change.waysToChange(5)).isEqualTo(2);
+        Assertions.assertThat(change.waysToChange(10)).isEqualTo(4);
+        Assertions.assertThat(change.waysToChange(25)).isEqualTo(13);
     }
 
 }
