@@ -1,9 +1,14 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 
-// 46. 全排列
+/**
+ * 46. 全排列
+ * https://leetcode-cn.com/problems/permutations/
+ */
 public class Permute {
 
     public List<List<Integer>> permute(int[] nums) {
@@ -34,6 +39,18 @@ public class Permute {
     public static void main(String[] args) {
 
         Permute permute = new Permute();
-        System.out.println(permute.permute(new int[]{1, 2, 3}));
+        Assertions.assertThat(permute.permute(new int[]{1, 2, 3})).hasSameElementsAs(Arrays.asList(
+                Arrays.asList(1, 2, 3),
+                Arrays.asList(1, 3, 2),
+                Arrays.asList(2, 1, 3),
+                Arrays.asList(2, 3, 1),
+                Arrays.asList(3, 1, 2),
+                Arrays.asList(3, 2, 1)
+        ));
+        Assertions.assertThat(permute.permute(new int[]{0, 1})).hasSameElementsAs(Arrays.asList(
+                Arrays.asList(0, 1),
+                Arrays.asList(1, 0)
+        ));
+
     }
 }
