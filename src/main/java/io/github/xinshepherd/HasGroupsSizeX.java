@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -50,13 +52,13 @@ public class HasGroupsSizeX {
 
     public static void main(String[] args) {
         HasGroupsSizeX groupsSizeX = new HasGroupsSizeX();
-        System.out.println(groupsSizeX.hasGroupsSizeX(new int[]{1, 2, 3, 4, 4, 3, 2, 1}));
-        System.out.println(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 1, 2, 2, 2, 3, 3}));
-        System.out.println(groupsSizeX.hasGroupsSizeX(new int[]{1}));
-        System.out.println(groupsSizeX.hasGroupsSizeX(new int[]{1, 1}));
-        System.out.println(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 2, 2, 2, 2}));
-        System.out.println(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 1, 1, 2, 2, 2, 2, 2, 2}));
-        System.out.println(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 1, 2, 2, 2}));
+        Assertions.assertThat(groupsSizeX.hasGroupsSizeX(new int[]{1, 2, 3, 4, 4, 3, 2, 1})).isTrue();
+        Assertions.assertThat(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 1, 2, 2, 2, 3, 3})).isFalse();
+        Assertions.assertThat(groupsSizeX.hasGroupsSizeX(new int[]{1})).isFalse();
+        Assertions.assertThat(groupsSizeX.hasGroupsSizeX(new int[]{1, 1})).isTrue();
+        Assertions.assertThat(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 2, 2, 2, 2})).isTrue();
+        Assertions.assertThat(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 1, 1, 2, 2, 2, 2, 2, 2})).isTrue();
+        Assertions.assertThat(groupsSizeX.hasGroupsSizeX(new int[]{1, 1, 1, 2, 2, 2})).isTrue();
     }
 
 }
