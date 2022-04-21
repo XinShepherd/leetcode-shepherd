@@ -1,7 +1,10 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 409. 最长回文串
+ * https://leetcode-cn.com/problems/longest-palindrome/
  *
  * @author Fuxin
  * @since 2020/3/19 9:06
@@ -43,9 +46,9 @@ public class LongestPalindrome {
 
     public static void main(String[] args) {
         LongestPalindrome longestPalindrome = new LongestPalindrome();
-        System.out.println(longestPalindrome.longestPalindrome("abccccdd"));
-        System.out.println(longestPalindrome.longestPalindrome("ccccccAAccBB"));
-        System.out.println(longestPalindrome.longestPalindrome("adam"));
+        Assertions.assertThat(longestPalindrome.longestPalindrome("abccccdd")).isEqualTo(7);
+        Assertions.assertThat(longestPalindrome.longestPalindrome("ccccccAAccBB")).isEqualTo(12);
+        Assertions.assertThat(longestPalindrome.longestPalindrome("adam")).isEqualTo(3);
     }
 
 }
