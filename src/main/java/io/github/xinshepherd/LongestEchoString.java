@@ -1,5 +1,12 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
+/**
+ * 5. 最长回文子串
+ * https://leetcode-cn.com/problems/longest-palindromic-substring/
+ *
+ */
 public class LongestEchoString {
 
     public String longestPalindrome(String s) {
@@ -56,9 +63,9 @@ public class LongestEchoString {
 
     public static void main(String[] args) {
         LongestEchoString solution = new LongestEchoString();
-        System.out.println(solution.longestPalindrome2("babaad"));
-        System.out.println(solution.longestPalindrome2("cbbd"));
-        System.out.println(solution.longestPalindrome2("bb"));
-        System.out.println(solution.longestPalindrome2("ccc"));
+        Assertions.assertThat(solution.longestPalindrome2("babaad")).isEqualTo("aba");
+        Assertions.assertThat(solution.longestPalindrome2("cbbd")).isEqualTo("bb");
+        Assertions.assertThat(solution.longestPalindrome2("bb")).isEqualTo("bb");
+        Assertions.assertThat(solution.longestPalindrome2("ccc")).isEqualTo("ccc");
     }
 }
