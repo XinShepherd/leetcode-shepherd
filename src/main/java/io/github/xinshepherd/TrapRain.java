@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 42. 接雨水
  *
@@ -41,7 +43,7 @@ public class TrapRain {
 
     public static void main(String[] args) {
         TrapRain trapRain = new TrapRain();
-        System.out.println(trapRain.trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+        Assertions.assertThat(trapRain.trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1})).isEqualTo(6);
 
     }
 
