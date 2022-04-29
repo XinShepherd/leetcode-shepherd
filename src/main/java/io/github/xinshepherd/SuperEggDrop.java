@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 887. 鸡蛋掉落
  *
@@ -31,8 +33,8 @@ public class SuperEggDrop {
 
     public static void main(String[] args) {
         SuperEggDrop eggDrop = new SuperEggDrop();
-        System.out.println(eggDrop.superEggDrop(1, 2));
-        System.out.println(eggDrop.superEggDrop(2, 6));
-        System.out.println(eggDrop.superEggDrop(3, 14));
+        Assertions.assertThat(eggDrop.superEggDrop(1, 2)).isEqualTo(2);
+        Assertions.assertThat(eggDrop.superEggDrop(2, 6)).isEqualTo(3);
+        Assertions.assertThat(eggDrop.superEggDrop(3, 14)).isEqualTo(4);
     }
 }
