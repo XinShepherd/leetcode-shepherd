@@ -1,10 +1,13 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
 /**
  * 820. 单词的压缩编码
+ * https://leetcode-cn.com/problems/short-encoding-of-words/
  *
  * @author Fuxin
  * @since 2020/3/28
@@ -62,8 +65,7 @@ public class MinimumLengthEncoding {
 
     public static void main(String[] args) {
         MinimumLengthEncoding encoding = new MinimumLengthEncoding();
-        int ans = encoding.minimumLengthEncoding2(new String[]{"time", "me", "bell"});
-        System.out.println(ans);
-        System.out.println(encoding.minimumLengthEncoding2(new String[]{"time", "me", "bell", "ll", "okay", "ay"}));
+        Assertions.assertThat(encoding.minimumLengthEncoding2(new String[]{"time", "me", "bell"})).isEqualTo(10);
+        Assertions.assertThat(encoding.minimumLengthEncoding2(new String[]{"time", "me", "bell", "ll", "okay", "ay"})).isEqualTo(15);
     }
 }
