@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 /**
@@ -63,7 +65,14 @@ public class ThreeSum {
 
     public static void main(String[] args) {
         ThreeSum threeSum = new ThreeSum();
-        System.out.println(threeSum.threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+        Assertions.assertThat(threeSum.threeSum(new int[]{-1, 0, 1, 2, -1, -4})).hasSameElementsAs(Arrays.asList(
+                Arrays.asList(-1, -1, 2),
+                Arrays.asList(-1, 0, 1)
+        ));
+        Assertions.assertThat(threeSum.threeSum2(new int[]{-1, 0, 1, 2, -1, -4})).hasSameElementsAs(Arrays.asList(
+                Arrays.asList(-1, -1, 2),
+                Arrays.asList(-1, 0, 1)
+        ));
     }
 
 }
