@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 8. 字符串转换整数 (atoi)
  *
@@ -39,12 +41,12 @@ public class MyAtoi {
 
     public static void main(String[] args) {
         MyAtoi myAtoi = new MyAtoi();
-        System.out.println(myAtoi.myAtoi("42"));
-        System.out.println(myAtoi.myAtoi("   -42"));
-        System.out.println(myAtoi.myAtoi("4193 with words"));
-        System.out.println(myAtoi.myAtoi("words and 987"));
-        System.out.println(myAtoi.myAtoi("-91283472332"));
-        System.out.println(myAtoi.myAtoi("-2147483647"));
+        Assertions.assertThat(myAtoi.myAtoi("42")).isEqualTo(42);
+        Assertions.assertThat(myAtoi.myAtoi("   -42")).isEqualTo(-42);
+        Assertions.assertThat(myAtoi.myAtoi("4193 with words")).isEqualTo(4193);
+        Assertions.assertThat(myAtoi.myAtoi("words and 987")).isEqualTo(0);
+        Assertions.assertThat(myAtoi.myAtoi("-91283472332")).isEqualTo(-2147483648);
+        Assertions.assertThat(myAtoi.myAtoi("-2147483647")).isEqualTo(-2147483647);
     }
 
 }
