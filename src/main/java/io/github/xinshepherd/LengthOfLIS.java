@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 // 300. 最长上升子序列
 public class LengthOfLIS {
 
@@ -78,8 +80,8 @@ public class LengthOfLIS {
 
     public static void main(String[] args) {
         LengthOfLIS lengthOfLIS = new LengthOfLIS();
-        System.out.println(lengthOfLIS.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
-        System.out.println(lengthOfLIS.lengthOfLIS(new int[]{7, 8, 2, 3, 4, 6, 9, 7, 8}));
-        System.out.println(lengthOfLIS.lengthOfLIS(new int[]{1, 3, 6, 7, 9, 4, 10, 5, 6}));
+        Assertions.assertThat(lengthOfLIS.lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18})).isEqualTo(4);
+        Assertions.assertThat(lengthOfLIS.lengthOfLIS(new int[]{7, 8, 2, 3, 4, 6, 9, 7, 8})).isEqualTo(6);
+        Assertions.assertThat(lengthOfLIS.lengthOfLIS(new int[]{1, 3, 6, 7, 9, 4, 10, 5, 6})).isEqualTo(6);
     }
 }
