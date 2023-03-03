@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 88. 合并两个有序数组
  *
@@ -60,14 +62,7 @@ public class MergeArray {
         MergeArray mergeArray = new MergeArray();
         int[] num1 = {1, 2, 7, 0, 0, 0};
         mergeArray.merge(num1, 3, new int[]{2, 5, 6}, 3);
-        print(num1);
-    }
-
-    static void print(int[] num) {
-        for (int i = 0; i < num.length; i++) {
-            System.out.print(num[i] + ",");
-        }
-        System.out.println();
+        Assertions.assertThat(num1).isEqualTo(new int[]{1, 2, 2, 5, 6, 7});
     }
 
 }
