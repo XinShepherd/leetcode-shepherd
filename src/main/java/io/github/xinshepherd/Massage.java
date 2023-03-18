@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 面试题 17.16. 按摩师
  *
@@ -31,9 +33,9 @@ public class Massage {
 
     public static void main(String[] args) {
         Massage massage = new Massage();
-        System.out.println(massage.massage(new int[]{1, 2, 3, 1}));
-        System.out.println(massage.massage(new int[]{2, 7, 9, 3, 1}));
-        System.out.println(massage.massage(new int[]{2, 1, 4, 5, 3, 1, 1, 3}));
+        Assertions.assertThat(massage.massage(new int[]{1, 2, 3, 1})).isEqualTo(4);
+        Assertions.assertThat(massage.massage(new int[]{2, 7, 9, 3, 1})).isEqualTo(12);
+        Assertions.assertThat(massage.massage(new int[]{2, 1, 4, 5, 3, 1, 1, 3})).isEqualTo(12);
     }
 
 
