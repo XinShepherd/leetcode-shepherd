@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 50. Pow(x, n)
  *
@@ -35,13 +37,13 @@ public class MyPow {
 
     public static void main(String[] args) {
         MyPow myPow = new MyPow();
-        System.out.println(myPow.myPow(0, 0));
-        System.out.println(myPow.myPow(1, 0));
-        System.out.println(myPow.myPow(-1, 0));
-        System.out.println(myPow.myPow(2, 2));
-        System.out.println(myPow.myPow(2, 10));
-        System.out.println(myPow.myPow(-2, 10));
-        System.out.println(myPow.myPow(2, -2));
-        System.out.println(myPow.myPow(-2, -3));
+        Assertions.assertThat(myPow.myPow(0, 0)).isEqualTo(1.0);
+        Assertions.assertThat(myPow.myPow(1, 0)).isEqualTo(1.0);
+        Assertions.assertThat(myPow.myPow(-1, 0)).isEqualTo(1.0);
+        Assertions.assertThat(myPow.myPow(2, 2)).isEqualTo(4.0);
+        Assertions.assertThat(myPow.myPow(2, 10)).isEqualTo(1024.0);
+        Assertions.assertThat(myPow.myPow(-2, 10)).isEqualTo(1024.0);
+        Assertions.assertThat(myPow.myPow(2, -2)).isEqualTo(0.25);
+        Assertions.assertThat(myPow.myPow(-2, -3)).isEqualTo(-0.125);
     }
 }
