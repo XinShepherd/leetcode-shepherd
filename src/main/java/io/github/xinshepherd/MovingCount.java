@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -53,9 +55,9 @@ public class MovingCount {
 
     public static void main(String[] args) {
         MovingCount count = new MovingCount();
-        System.out.println(count.movingCount(2, 3, 1));
-        System.out.println(count.movingCount(3, 1, 0));
-        System.out.println(count.movingCount(1, 2, 1));
+        Assertions.assertThat(count.movingCount(2, 3, 1)).isEqualTo(3);
+        Assertions.assertThat(count.movingCount(3, 1, 0)).isEqualTo(1);
+        Assertions.assertThat(count.movingCount(1, 2, 1)).isEqualTo(2);
     }
 
 }
