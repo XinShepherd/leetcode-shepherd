@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -7,6 +9,7 @@ import java.util.List;
 
 /**
  * 118. 杨辉三角
+ *
  * @author Fuxin
  * @since 2020/2/24 14:40
  */
@@ -19,7 +22,7 @@ public class Yanghui {
         if (numRows >= 2) {
             results.add(Arrays.asList(1, 1));
         }
-        if (numRows > 2){
+        if (numRows > 2) {
             generate(numRows, 3, results);
         }
         return results;
@@ -41,6 +44,15 @@ public class Yanghui {
 
     public static void main(String[] args) {
         Yanghui yanghui = new Yanghui();
-        System.out.println(yanghui.generate(5));
+        Assertions.assertThat(yanghui.generate(5))
+                .isEqualTo(
+                        Arrays.asList(
+                                Arrays.asList(1),
+                                Arrays.asList(1, 1),
+                                Arrays.asList(1, 2, 1),
+                                Arrays.asList(1, 3, 3, 1),
+                                Arrays.asList(1, 4, 6, 4, 1)
+                        )
+                );
     }
 }
