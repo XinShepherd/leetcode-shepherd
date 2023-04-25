@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 1248. 统计「优美子数组」
  *
@@ -48,8 +50,8 @@ public class NumberOfSubArrays {
 
     public static void main(String[] args) {
         NumberOfSubArrays subArrays = new NumberOfSubArrays();
-        System.out.println(subArrays.numberOfSubarrays(new int[]{1, 1, 2, 1, 1}, 3));
-        System.out.println(subArrays.numberOfSubarrays(new int[]{2, 4, 6}, 3));
-        System.out.println(subArrays.numberOfSubarrays(new int[]{2, 2, 2, 1, 2, 2, 1, 2, 2, 2}, 2));
+        Assertions.assertThat(subArrays.numberOfSubarrays(new int[]{1, 1, 2, 1, 1}, 3)).isEqualTo(2);
+        Assertions.assertThat(subArrays.numberOfSubarrays(new int[]{2, 4, 6}, 3)).isEqualTo(0);
+        Assertions.assertThat(subArrays.numberOfSubarrays(new int[]{2, 2, 2, 1, 2, 2, 1, 2, 2, 2}, 2)).isEqualTo(16);
     }
 }
