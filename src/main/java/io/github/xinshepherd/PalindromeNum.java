@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 9. 回文数
  *
@@ -21,9 +23,9 @@ public class PalindromeNum {
 
     public static void main(String[] args) {
         PalindromeNum palindromeNum = new PalindromeNum();
-        System.out.println(palindromeNum.isPalindrome(121));
-        System.out.println(palindromeNum.isPalindrome(-121));
-        System.out.println(palindromeNum.isPalindrome(0));
-        System.out.println(palindromeNum.isPalindrome(10));
+        Assertions.assertThat(palindromeNum.isPalindrome(121)).isEqualTo(true);
+        Assertions.assertThat(palindromeNum.isPalindrome(-121)).isEqualTo(false);
+        Assertions.assertThat(palindromeNum.isPalindrome(0)).isEqualTo(true);
+        Assertions.assertThat(palindromeNum.isPalindrome(10)).isEqualTo(false);
     }
 }
