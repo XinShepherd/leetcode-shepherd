@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 892. 三维形体的表面积
  *
@@ -34,20 +36,20 @@ public class SurfaceArea {
 
     public static void main(String[] args) {
         SurfaceArea surfaceArea = new SurfaceArea();
-        System.out.println(surfaceArea.surfaceArea(new int[][]{new int[]{2}}));
-        System.out.println(surfaceArea.surfaceArea(new int[][]{
+        Assertions.assertThat(surfaceArea.surfaceArea(new int[][]{new int[]{2}})).isEqualTo(10);
+        Assertions.assertThat(surfaceArea.surfaceArea(new int[][]{
                 new int[]{1, 2},
                 new int[]{3, 4}
-        }));
-        System.out.println(surfaceArea.surfaceArea(new int[][]{
+        })).isEqualTo(34);
+        Assertions.assertThat(surfaceArea.surfaceArea(new int[][]{
                 new int[]{1, 0},
                 new int[]{0, 2}
-        }));
-        System.out.println(surfaceArea.surfaceArea(new int[][]{
+        })).isEqualTo(16);
+        Assertions.assertThat(surfaceArea.surfaceArea(new int[][]{
                 new int[]{1, 1, 1},
                 new int[]{1, 0, 1},
                 new int[]{1, 1, 1}
-        }));
+        })).isEqualTo(32);
 
     }
 }
