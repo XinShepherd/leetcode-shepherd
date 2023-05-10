@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -40,7 +42,7 @@ public class LastRemaining {
 
     public static void main(String[] args) {
         LastRemaining remaining = new LastRemaining();
-        System.out.println(remaining.lastRemaining(5, 3));
-        System.out.println(remaining.lastRemaining(10, 17));
+        Assertions.assertThat(remaining.lastRemaining(5, 3)).isEqualTo(3);
+        Assertions.assertThat(remaining.lastRemaining(10, 17)).isEqualTo(2);
     }
 }
