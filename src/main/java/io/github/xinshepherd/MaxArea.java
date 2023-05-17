@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * @author Fuxin
  * @since 2020/3/21
@@ -42,7 +44,7 @@ public class MaxArea {
 
     public static void main(String[] args) {
         MaxArea maxArea = new MaxArea();
-        System.out.println(maxArea.maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}));
-        System.out.println(maxArea.onceLoop(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}));
+        Assertions.assertThat(maxArea.maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7})).isEqualTo(49);
+        Assertions.assertThat(maxArea.onceLoop(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7})).isEqualTo(49);
     }
 }
