@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 public class RomanToInt {
@@ -63,8 +65,8 @@ public class RomanToInt {
 
     public static void main(String[] args) {
         RomanToInt solution = new RomanToInt();
-        System.out.println(solution.romanToInt("MCMXCIV"));
-        System.out.println(solution.romanToInt("LVIII"));
-        System.out.println(solution.romanToInt("IX"));
+        Assertions.assertThat(solution.romanToInt("MCMXCIV")).isEqualTo(1994);
+        Assertions.assertThat(solution.romanToInt("LVIII")).isEqualTo(58);
+        Assertions.assertThat(solution.romanToInt("IX")).isEqualTo(9);
     }
 }
