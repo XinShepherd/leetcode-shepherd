@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -40,9 +42,9 @@ public class MaxQueue {
         MaxQueue maxQueue = new MaxQueue();
         maxQueue.push_back(1);
         maxQueue.push_back(2);
-        System.out.println(maxQueue.max_value());
-        System.out.println(maxQueue.pop_front());
-        System.out.println(maxQueue.max_value());
+        Assertions.assertThat(maxQueue.max_value()).isEqualTo(2);
+        Assertions.assertThat(maxQueue.pop_front()).isEqualTo(1);
+        Assertions.assertThat(maxQueue.max_value()).isEqualTo(2);
     }
 
 }
