@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 1071. 字符串的最大公因子
  *
@@ -57,10 +59,10 @@ public class GcdOfStrings {
 
     public static void main(String[] args) {
         GcdOfStrings gcdOfStrings = new GcdOfStrings();
-        System.out.println(gcdOfStrings.gcdOfStrings("ABCABC", "ABC"));
-        System.out.println(gcdOfStrings.gcdOfStrings("ABABAB", "ABAB"));
-        System.out.println(gcdOfStrings.gcdOfStrings("LEET", "CODE"));
-        System.out.println(gcdOfStrings.gcdOfStrings("", "CODE"));
+        Assertions.assertThat(gcdOfStrings.gcdOfStrings("ABCABC", "ABC")).isEqualTo("ABC");
+        Assertions.assertThat(gcdOfStrings.gcdOfStrings("ABABAB", "ABAB")).isEqualTo("AB");
+        Assertions.assertThat(gcdOfStrings.gcdOfStrings("LEET", "CODE")).isEqualTo("");
+        Assertions.assertThat(gcdOfStrings.gcdOfStrings("", "CODE")).isEqualTo("");
     }
 
 
