@@ -1,11 +1,14 @@
 package io.github.xinshepherd;
 
-import netscape.security.UserTarget;
+import org.assertj.core.api.Assertions;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+/**
+ * 有效括号
+ */
 public class ValidParentheses {
 
     private final Map<Character, Character> mapping = new HashMap<>();
@@ -34,12 +37,12 @@ public class ValidParentheses {
 
     public static void main(String[] args) {
         ValidParentheses validParentheses = new ValidParentheses();
-        System.out.println(validParentheses.isValid("("));
-        System.out.println(validParentheses.isValid("}"));
-        System.out.println(validParentheses.isValid("()[]{}"));
-        System.out.println(validParentheses.isValid("(]"));
-        System.out.println(validParentheses.isValid("([)]"));
-        System.out.println(validParentheses.isValid("{[]}"));
+        Assertions.assertThat(validParentheses.isValid("(")).isEqualTo(false);
+        Assertions.assertThat(validParentheses.isValid("}")).isEqualTo(false);
+        Assertions.assertThat(validParentheses.isValid("()[]{}")).isEqualTo(true);
+        Assertions.assertThat(validParentheses.isValid("(]")).isEqualTo(false);
+        Assertions.assertThat(validParentheses.isValid("([)]")).isEqualTo(false);
+        Assertions.assertThat(validParentheses.isValid("{[]}")).isEqualTo(true);
     }
 
 }
