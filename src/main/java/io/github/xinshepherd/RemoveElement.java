@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
         int length = nums.length;
@@ -30,8 +32,8 @@ public class RemoveElement {
     public static void main(String[] args) {
         RemoveElement removeElement = new RemoveElement();
         int[] arrays = {3, 2, 2, 3};
-        System.out.println(removeElement.removeElement(arrays, 3));
+        Assertions.assertThat(removeElement.removeElement(arrays, 3)).isEqualTo(2);
         arrays = new int[]{0, 1, 2, 2, 3, 0, 4, 2};
-        System.out.println(removeElement.removeElement(arrays, 2));
+        Assertions.assertThat(removeElement.removeElement(arrays, 2)).isEqualTo(5);
     }
 }
