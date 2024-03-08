@@ -25,9 +25,6 @@ public class Reverse {
     }
 
     public static void main(String[] args) {
-        System.out.println(Integer.MIN_VALUE / 10);
-        System.out.println(Integer.MIN_VALUE % 10);
-        System.out.println(Math.abs(Integer.MIN_VALUE + 1));
         Reverse reverse = new Reverse();
         Assertions.assertThat(reverse.reverse(12)).isEqualTo(21);
         Assertions.assertThat(reverse.reverse(121)).isEqualTo(121);
