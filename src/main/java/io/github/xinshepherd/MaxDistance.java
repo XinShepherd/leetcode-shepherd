@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -53,22 +55,22 @@ public class MaxDistance {
 
     public static void main(String[] args) {
         MaxDistance distance = new MaxDistance();
-        System.out.println(distance.maxDistance(new int[][]{
+        Assertions.assertThat(distance.maxDistance(new int[][]{
                 new int[]{1, 0, 1},
                 new int[]{0, 0, 0},
                 new int[]{1, 0, 1}
-        }));
+        })).isEqualTo(2);
 
-        System.out.println(distance.maxDistance(new int[][]{
+        Assertions.assertThat(distance.maxDistance(new int[][]{
                 new int[]{1, 0, 0},
                 new int[]{0, 0, 0},
                 new int[]{0, 0, 0}
-        }));
-        System.out.println(distance.maxDistance(new int[][]{
+        })).isEqualTo(4);
+        Assertions.assertThat(distance.maxDistance(new int[][]{
                 new int[]{0, 0, 0},
                 new int[]{0, 0, 0},
                 new int[]{0, 0, 0}
-        }));
+        })).isEqualTo(-1);
 
     }
 }
