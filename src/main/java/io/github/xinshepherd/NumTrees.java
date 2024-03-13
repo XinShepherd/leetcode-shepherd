@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 96. 不同的二叉搜索树
  *
@@ -26,7 +28,7 @@ public class NumTrees {
 
     public static void main(String[] args) {
         NumTrees numTrees = new NumTrees();
-        System.out.println(numTrees.numTrees(3));
+        Assertions.assertThat(numTrees.numTrees(3)).isEqualTo(5);
     }
 
 }
