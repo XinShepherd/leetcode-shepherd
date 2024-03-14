@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,24 +59,24 @@ public class OrangesRotting {
 
     public static void main(String[] args) {
         OrangesRotting orangesRotting = new OrangesRotting();
-        System.out.println(orangesRotting.orangesRotting(new int[][]{
+        Assertions.assertThat(orangesRotting.orangesRotting(new int[][]{
                 new int[]{2, 1, 1},
                 new int[]{1, 1, 0},
                 new int[]{0, 1, 1}
-        }));
-        System.out.println(orangesRotting.orangesRotting(new int[][]{
+        })).isEqualTo(4);
+        Assertions.assertThat(orangesRotting.orangesRotting(new int[][]{
                 new int[]{0, 2},
-        }));
-        System.out.println(orangesRotting.orangesRotting(new int[][]{
+        })).isEqualTo(0);
+        Assertions.assertThat(orangesRotting.orangesRotting(new int[][]{
                 new int[]{2, 1, 1},
                 new int[]{0, 1, 1},
                 new int[]{1, 0, 1}
-        }));
-        System.out.println(orangesRotting.orangesRotting(new int[][]{
+        })).isEqualTo(-1);
+        Assertions.assertThat(orangesRotting.orangesRotting(new int[][]{
                 new int[]{1},
                 new int[]{1},
                 new int[]{1}
-        }));
+        })).isEqualTo(-1);
     }
 
 }
