@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -84,8 +86,8 @@ public class ValidSudoku {
                 new char[]{'.', '.', '.', '4', '1', '9', '.', '.', '5'},
                 new char[]{'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
-        System.out.println(validSudoku.isValidSudoku(board));
-        System.out.println(validSudoku.isValidSudoku(invalidBoard));
+        Assertions.assertThat(validSudoku.isValidSudoku(board)).isEqualTo(true);
+        Assertions.assertThat(validSudoku.isValidSudoku(invalidBoard)).isEqualTo(false);
     }
 
 }
