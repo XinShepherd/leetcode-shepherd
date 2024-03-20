@@ -1,12 +1,12 @@
 package io.github.xinshepherd;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import org.assertj.core.api.Assertions;
+
+import java.util.*;
 
 /**
  * 51. N皇后
+ *
  * @author Fuxin
  * @since 2020/2/24 9:47
  */
@@ -78,8 +78,22 @@ public class SolveNQueens {
 
     public static void main(String[] args) {
         SolveNQueens queens = new SolveNQueens();
-        System.out.println(queens.solveNQueens(4));
-        System.out.println(queens.solveNQueens(5));
+        Assertions.assertThat(queens.solveNQueens(4)).isEqualTo(Arrays.asList(
+                Arrays.asList(".Q..", "...Q", "Q...", "..Q."),
+                Arrays.asList("..Q.", "Q...", "...Q", ".Q..")
+        ));
+        Assertions.assertThat(queens.solveNQueens(5)).isEqualTo(Arrays.asList(
+                Arrays.asList("Q....", "..Q..", "....Q", ".Q...", "...Q."),
+                Arrays.asList("Q....", "...Q.", ".Q...", "....Q", "..Q.."),
+                Arrays.asList(".Q...", "...Q.", "Q....", "..Q..", "....Q"),
+                Arrays.asList(".Q...", "....Q", "..Q..", "Q....", "...Q."),
+                Arrays.asList("..Q..", "Q....", "...Q.", ".Q...", "....Q"),
+                Arrays.asList("..Q..", "....Q", ".Q...", "...Q.", "Q...."),
+                Arrays.asList("...Q.", "Q....", "..Q..", "....Q", ".Q..."),
+                Arrays.asList("...Q.", ".Q...", "....Q", "..Q..", "Q...."),
+                Arrays.asList("....Q", ".Q...", "...Q.", "Q....", "..Q.."),
+                Arrays.asList("....Q", "..Q..", "Q....", "...Q.", ".Q...")
+        ));
     }
 
 }
