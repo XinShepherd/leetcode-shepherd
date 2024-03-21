@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 // 求一个数的平方最右是否等于该数，如25的平方625最右边25是该数。
 public class MostRightSquare {
 
@@ -16,14 +18,14 @@ public class MostRightSquare {
 
     public static void main(String[] args) {
         MostRightSquare mostRightSquare = new MostRightSquare();
-        System.out.println("1: " + mostRightSquare.mostRightSquare(1));
-        System.out.println("5: " + mostRightSquare.mostRightSquare(5));
-        System.out.println("6: " + mostRightSquare.mostRightSquare(6));
-        System.out.println("25: " + mostRightSquare.mostRightSquare(25));
-        System.out.println("40: " + mostRightSquare.mostRightSquare(40));
-        System.out.println("30: " + mostRightSquare.mostRightSquare(30));
-        System.out.println("36: " + mostRightSquare.mostRightSquare(36));
-        System.out.println("125: " + mostRightSquare.mostRightSquare(125));
+        Assertions.assertThat( mostRightSquare.mostRightSquare(1)).isEqualTo(true);
+        Assertions.assertThat( mostRightSquare.mostRightSquare(5)).isEqualTo(true);
+        Assertions.assertThat( mostRightSquare.mostRightSquare(6)).isEqualTo(true);
+        Assertions.assertThat( mostRightSquare.mostRightSquare(25)).isEqualTo(true);
+        Assertions.assertThat( mostRightSquare.mostRightSquare(40)).isEqualTo(false);
+        Assertions.assertThat( mostRightSquare.mostRightSquare(30)).isEqualTo(false);
+        Assertions.assertThat( mostRightSquare.mostRightSquare(36)).isEqualTo(false);
+        Assertions.assertThat( mostRightSquare.mostRightSquare(125)).isEqualTo(false);
     }
 
 }
