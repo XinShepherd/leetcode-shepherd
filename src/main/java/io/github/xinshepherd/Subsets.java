@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 /**
@@ -31,8 +33,18 @@ public class Subsets {
 
     public static void main(String[] args) {
         Subsets subsets = new Subsets();
-        System.out.println(subsets.subsets(new int[]{}));
-        System.out.println(subsets.subsets(new int[]{1, 2, 3}));
+        Assertions.assertThat(subsets.subsets(new int[]{})).isEqualTo(Arrays.asList(Arrays.asList()));
+        Assertions.assertThat(subsets.subsets(new int[]{1, 2, 3})).isEqualTo(
+                Arrays.asList(
+                        Arrays.asList(1),
+                        Arrays.asList(1, 2),
+                        Arrays.asList(1, 2, 3),
+                        Arrays.asList(1, 3),
+                        Arrays.asList(2),
+                        Arrays.asList(2, 3),
+                        Arrays.asList(3),
+                        Arrays.asList())
+        );
     }
 
 }
