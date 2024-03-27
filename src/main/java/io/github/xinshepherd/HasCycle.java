@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * @author Fuxin
  * @since 2020/3/9 11:30
@@ -28,12 +30,12 @@ public class HasCycle {
         ListNode head = new ListNode(3);
         ListNode last = head.append(2, 0, 4);
         last.next = head.next;
-        System.out.println(hasCycle.hasCycle(head));
+        Assertions.assertThat(hasCycle.hasCycle(head)).isEqualTo(true);
         head = new ListNode(1);
         head.append(2).next = head;
-        System.out.println(hasCycle.hasCycle(head));
+        Assertions.assertThat(hasCycle.hasCycle(head)).isEqualTo(true);
         head = new ListNode(1);
-        System.out.println(hasCycle.hasCycle(head));
+        Assertions.assertThat(hasCycle.hasCycle(head)).isEqualTo(false);
     }
 
 }
