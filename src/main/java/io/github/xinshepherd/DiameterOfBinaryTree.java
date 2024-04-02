@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 import static io.github.xinshepherd.TreeNode.demo2;
 import static io.github.xinshepherd.TreeNode.demo3;
 
@@ -28,13 +30,13 @@ public class DiameterOfBinaryTree {
         if (right + left > max) {
             max = right + left;
         }
-        return right > left ? right : left;
+        return Math.max(right, left);
     }
 
     public static void main(String[] args) {
         DiameterOfBinaryTree diameterOfBinaryTree = new DiameterOfBinaryTree();
-        System.out.println(diameterOfBinaryTree.diameterOfBinaryTree(demo2()));
-        System.out.println(diameterOfBinaryTree.diameterOfBinaryTree(demo3()));
+        Assertions.assertThat(diameterOfBinaryTree.diameterOfBinaryTree(demo2())).isEqualTo(3);
+        Assertions.assertThat(diameterOfBinaryTree.diameterOfBinaryTree(demo3())).isEqualTo(2);
     }
 
 }
