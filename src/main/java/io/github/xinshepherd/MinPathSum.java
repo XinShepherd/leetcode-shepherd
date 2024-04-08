@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 64. 最小路径和
  *
@@ -35,11 +37,11 @@ public class MinPathSum {
 
     public static void main(String[] args) {
         MinPathSum minPathSum = new MinPathSum();
-        System.out.println(minPathSum.minPathSum(new int[][]{
+        Assertions.assertThat(minPathSum.minPathSum(new int[][]{
                 new int[]{1, 3, 1},
                 new int[]{1, 5, 1},
                 new int[]{4, 2, 1}
-        }));
+        })).isEqualTo(7);
     }
 
 }
