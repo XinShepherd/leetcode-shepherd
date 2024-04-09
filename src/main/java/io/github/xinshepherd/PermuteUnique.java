@@ -1,6 +1,9 @@
 package io.github.xinshepherd;
 
 // 47. 全排列 II
+
+import org.assertj.core.api.Assertions;
+
 import java.util.*;
 
 public class PermuteUnique {
@@ -41,6 +44,11 @@ public class PermuteUnique {
     public static void main(String[] args) {
 
         PermuteUnique permute = new PermuteUnique();
-        System.out.println(permute.permuteUnique(new int[]{1, 1, 3}));
+        Assertions.assertThat(permute.permuteUnique(new int[]{1, 1, 3})).isEqualTo(
+                Arrays.asList(
+                        Arrays.asList(1, 1, 3),
+                        Arrays.asList(1, 3, 1),
+                        Arrays.asList(3, 1, 1)
+                ));
     }
 }
