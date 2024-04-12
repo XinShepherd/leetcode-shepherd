@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 137. 只出现一次的数字 II
  *
@@ -34,7 +36,7 @@ public class SingleNumberII {
 
     public static void main(String[] args) {
         SingleNumberII singleNumberII = new SingleNumberII();
-        System.out.println(singleNumberII.singleNumber(new int[]{2, 3, 2, 2}));
+        Assertions.assertThat(singleNumberII.singleNumber(new int[]{2, 3, 2, 2})).isEqualTo(3);
 
     }
 
