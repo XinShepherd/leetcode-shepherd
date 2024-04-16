@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 98. 验证二叉搜索树
  * @author Fuxin
@@ -25,10 +27,10 @@ public class ValidBST {
 
     public static void main(String[] args) {
         ValidBST validBST = new ValidBST();
-        System.out.println(validBST.isValidBST(TreeNode.demo()));
-        System.out.println(validBST.isValidBST(TreeNode.demo2()));
-        System.out.println(validBST.isValidBST(TreeNode.demo3()));
-        System.out.println(validBST.isValidBST(TreeNode.demo4()));
+        Assertions.assertThat(validBST.isValidBST(TreeNode.demo())).isEqualTo(false);
+        Assertions.assertThat(validBST.isValidBST(TreeNode.demo2())).isEqualTo(false);
+        Assertions.assertThat(validBST.isValidBST(TreeNode.demo3())).isEqualTo(true);
+        Assertions.assertThat(validBST.isValidBST(TreeNode.demo4())).isEqualTo(false);
     }
 
 }
