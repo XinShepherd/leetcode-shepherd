@@ -1,9 +1,8 @@
 package io.github.xinshepherd;
 
-import java.util.Collections;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import org.assertj.core.api.Assertions;
+
+import java.util.*;
 
 // 94. 二叉树的中序遍历
 public class InorderTraversal {
@@ -40,7 +39,7 @@ public class InorderTraversal {
 
     public static void main(String[] args) {
         InorderTraversal inorderTraversal = new InorderTraversal();
-        System.out.println(inorderTraversal.inorderTraversal(TreeNode.demo()));
+        Assertions.assertThat(inorderTraversal.inorderTraversal(TreeNode.demo())).isEqualTo(Arrays.asList(1, 3, 2));
 
     }
 
