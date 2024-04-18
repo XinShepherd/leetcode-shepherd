@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 28. 实现 strStr()
  *
@@ -75,7 +77,7 @@ public class StrStr {
 
     public static void main(String[] args) {
         StrStr str = new StrStr();
-        System.out.println(str.indexOf("hello", "ll"));
+        Assertions.assertThat(str.indexOf("hello", "ll")).isEqualTo(2);
     }
 
 }
