@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 public class LongestCommonPrefix {
 
     public String longestCommonPrefix(String[] strs) {
@@ -27,7 +29,7 @@ public class LongestCommonPrefix {
 
     public static void main(String[] args) {
         LongestCommonPrefix commonPrefix = new LongestCommonPrefix();
-        System.out.println(commonPrefix.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
-        System.out.println(commonPrefix.longestCommonPrefix(new String[]{"dog","racecar","car"}));
+        Assertions.assertThat(commonPrefix.longestCommonPrefix(new String[]{"flower", "flow", "flight"})).isEqualTo("fl");
+        Assertions.assertThat(commonPrefix.longestCommonPrefix(new String[]{"dog", "racecar", "car"})).isEqualTo("");
     }
 }
