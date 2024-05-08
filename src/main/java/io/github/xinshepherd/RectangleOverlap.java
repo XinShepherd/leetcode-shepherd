@@ -1,5 +1,7 @@
 package io.github.xinshepherd;
 
+import org.assertj.core.api.Assertions;
+
 /**
  * 836. 矩形重叠
  *
@@ -39,9 +41,9 @@ public class RectangleOverlap {
 
     public static void main(String[] args) {
         RectangleOverlap rectangleOverlap = new RectangleOverlap();
-        System.out.println(rectangleOverlap.isRectangleOverlap(new int[]{0, 0, 2, 2}, new int[]{1, 1, 3, 3}));
-        System.out.println(rectangleOverlap.isRectangleOverlap(new int[]{0, 0, 1, 1}, new int[]{1, 0, 2, 1}));
-        System.out.println(rectangleOverlap.isRectangleOverlap(new int[]{7, 8, 13, 15}, new int[]{10, 8, 12, 20}));
+        Assertions.assertThat(rectangleOverlap.isRectangleOverlap(new int[]{0, 0, 2, 2}, new int[]{1, 1, 3, 3})).isEqualTo(true);
+        Assertions.assertThat(rectangleOverlap.isRectangleOverlap(new int[]{0, 0, 1, 1}, new int[]{1, 0, 2, 1})).isEqualTo(false);
+        Assertions.assertThat(rectangleOverlap.isRectangleOverlap(new int[]{7, 8, 13, 15}, new int[]{10, 8, 12, 20})).isEqualTo(true);
     }
 
 }
